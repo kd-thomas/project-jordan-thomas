@@ -1,0 +1,1318 @@
+/* =========================================================
+   PROJECT JORDAN THOMAS
+   WHY PAGE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   PAGE WIDTHS
+   --------------------------------------------------------- */
+
+.why-shell {
+  width: min(calc(100% - 48px), 1180px);
+  margin-inline: auto;
+}
+
+.why-reading-width {
+  width: min(calc(100% - 48px), 760px);
+  margin-inline: auto;
+}
+
+
+/* ---------------------------------------------------------
+   SHARED WHY TYPOGRAPHY
+   --------------------------------------------------------- */
+
+.why-kicker {
+  margin: 0 0 16px;
+
+  color: #0876f9;
+
+  font-size: 0.76rem;
+  font-weight: 850;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.why-kicker-orange {
+  color: #ff6a00;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.why-hero {
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 74% 12%,
+      rgba(8, 118, 249, 0.22),
+      transparent 30%
+    ),
+    #061c3e;
+}
+
+.why-hero-grid {
+  min-height: 640px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(330px, 0.68fr);
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.why-hero-copy {
+  padding: 80px 0;
+}
+
+.why-hero-copy h1 {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(3.4rem, 6.3vw, 5.8rem);
+  font-weight: 850;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+.why-hero-copy h1 span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #68adff;
+}
+
+.why-author {
+  margin: 30px 0 0;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.why-author span {
+  margin-left: 8px;
+
+  color: #91a9c5;
+
+  font-weight: 500;
+}
+
+.why-hero-image {
+  position: relative;
+
+  align-self: end;
+
+  max-width: 470px;
+}
+
+.why-hero-image img {
+  width: 100%;
+  max-height: 585px;
+
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 22px 22px 0 0;
+}
+
+.why-hero-image-caption {
+  position: absolute;
+
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+
+  padding: 17px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #ffffff;
+
+  background:
+    rgba(3, 20, 45, 0.82);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(10px);
+}
+
+.why-hero-image-caption strong {
+  font-size: 0.95rem;
+}
+
+.why-hero-image-caption span {
+  color: #a9bfd8;
+
+  font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   ESSAY
+   ========================================================= */
+
+.why-essay-section {
+  padding: 110px 0 125px;
+
+  background: #ffffff;
+}
+
+.why-essay {
+  width: min(calc(100% - 48px), 760px);
+
+  margin-inline: auto;
+
+  color: #203754;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 1.19rem;
+
+  line-height: 1.9;
+}
+
+.why-essay p {
+  margin: 0 0 31px;
+}
+
+.why-essay .why-lede {
+  margin-bottom: 38px;
+
+  color: #10294b;
+
+  font-size: 1.48rem;
+  font-weight: 600;
+
+  line-height: 1.65;
+}
+
+.why-essay h2 {
+  margin:
+    95px 0 32px;
+
+  color: #10294b;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(2.15rem, 4vw, 3.25rem);
+  font-weight: 850;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* ---------------------------------------------------------
+   NARRATIVE PAUSE
+
+   This intentionally does NOT look like a blockquote.
+   It is part of Kay's own first-person narrative.
+   --------------------------------------------------------- */
+
+.why-story-pause {
+  margin: 74px 0 78px;
+
+  padding: 0;
+}
+
+.why-story-pause-main {
+  max-width: 700px;
+
+  margin: 0 0 16px !important;
+
+  color: #10294b;
+
+  font-size: 1.42rem;
+  font-weight: 600;
+
+  line-height: 1.65;
+}
+
+.why-story-pause-main em {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.why-story-pause-soft {
+  max-width: 650px;
+
+  margin: 0 !important;
+
+  color: #61758f;
+
+  font-size: 1.07rem;
+
+  line-height: 1.7;
+}
+
+.why-essay-ending {
+  margin-top: 90px;
+
+  padding:
+    42px 45px;
+
+  color: #ffffff;
+
+  background: #061c3e;
+
+  border-radius: 18px;
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  font-size: clamp(1.65rem, 4vw, 2.65rem);
+  font-weight: 750;
+
+  line-height: 1.3;
+}
+
+.why-essay-ending strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #68adff;
+}
+
+
+/* =========================================================
+   DATA TRANSITION
+   ========================================================= */
+
+.why-data-bridge {
+  padding:
+    110px 0;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(8, 118, 249, 0.19),
+      transparent 30%
+    ),
+    #061c3e;
+}
+
+.why-data-bridge-inner {
+  max-width: 900px;
+}
+
+.why-data-bridge h2 {
+  max-width: 900px;
+
+  margin:
+    0 0 30px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  font-weight: 850;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.05em;
+}
+
+.why-data-bridge h2 span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #68adff;
+}
+
+.why-data-bridge p:last-child {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: #bdcee1;
+
+  font-size: 1.18rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   NATIONAL DATA
+   ========================================================= */
+
+.why-data-section {
+  padding:
+    105px 0 115px;
+
+  background: #f5f8fc;
+}
+
+.why-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 35px;
+
+  margin-bottom: 52px;
+}
+
+.why-section-heading h2 {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #10294b;
+
+  font-size: clamp(2.45rem, 4.4vw, 3.9rem);
+  font-weight: 850;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+.why-data-badge {
+  flex: 0 0 auto;
+
+  padding: 9px 14px;
+
+  color: #526b88;
+  background: #ffffff;
+
+  border:
+    1px solid #dce5ef;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+
+/* ---------------------------------------------------------
+   STAT CARDS
+   --------------------------------------------------------- */
+
+.why-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+.why-stat {
+  min-height: 260px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dce5ef;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 14px 36px
+    rgba(16, 41, 75, 0.055);
+}
+
+.why-stat strong {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: #0876f9;
+
+  font-size: clamp(3.8rem, 6vw, 5.4rem);
+  font-weight: 850;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+}
+
+.why-stat p {
+  margin:
+    0 0 22px;
+
+  color: #10294b;
+
+  font-size: 1.07rem;
+  font-weight: 750;
+
+  line-height: 1.48;
+}
+
+.why-stat span {
+  margin-top: auto;
+
+  color: #71849b;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN DATA GRAPH
+   --------------------------------------------------------- */
+
+.why-chart-card {
+  padding: 38px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dce5ef;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 18px 45px
+    rgba(16, 41, 75, 0.06);
+}
+
+.why-chart-header {
+  margin-bottom: 20px;
+}
+
+.why-chart-label {
+  margin:
+    0 0 7px;
+
+  color: #0876f9;
+
+  font-size: 0.7rem;
+  font-weight: 850;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.why-chart-header h3 {
+  margin:
+    0 0 8px;
+
+  color: #10294b;
+
+  font-size: 1.7rem;
+}
+
+.why-chart-header p:last-child {
+  margin: 0;
+
+  color: #61758f;
+}
+
+.why-chart-scroll {
+  overflow-x: auto;
+
+  padding-bottom: 4px;
+}
+
+.why-bar-chart {
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+
+  display: block;
+}
+
+.chart-grid-line {
+  stroke: #e3eaf2;
+  stroke-width: 1;
+}
+
+.chart-axis {
+  stroke: #b8c7d8;
+  stroke-width: 1.5;
+}
+
+.chart-y-label {
+  fill: #71849b;
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  font-size: 13px;
+
+  text-anchor: end;
+}
+
+.chart-bar {
+  fill: #0a4d9b;
+}
+
+.chart-bar-high {
+  fill: #0876f9;
+}
+
+.chart-value {
+  fill: #10294b;
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  text-anchor: middle;
+}
+
+.chart-year {
+  fill: #526b88;
+
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+
+  font-size: 15px;
+  font-weight: 750;
+
+  text-anchor: middle;
+}
+
+
+/* ---------------------------------------------------------
+   WORKER COMPARISON
+   --------------------------------------------------------- */
+
+.why-worker-comparison {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 0.85fr;
+
+  gap: 60px;
+
+  align-items: center;
+
+  padding: 45px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dce5ef;
+
+  border-radius: 22px;
+}
+
+.why-worker-copy h3 {
+  margin:
+    0 0 20px;
+
+  color: #10294b;
+
+  font-size: clamp(1.85rem, 3vw, 2.65rem);
+
+  line-height: 1.18;
+}
+
+.why-worker-copy p:not(.why-kicker) {
+  margin:
+    0 0 13px;
+
+  color: #61758f;
+}
+
+.why-mini-chart {
+  min-height: 285px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 34px;
+}
+
+.why-mini-column {
+  min-width: 96px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-mini-column strong {
+  margin-bottom: 9px;
+
+  color: #10294b;
+
+  font-size: 1.45rem;
+}
+
+.why-mini-bar {
+  width: 72px;
+
+  background: #0a4d9b;
+
+  border-radius:
+    8px 8px 0 0;
+}
+
+.why-mini-bar-alert {
+  background: #ff6a00;
+}
+
+.why-mini-column span {
+  margin-top: 10px;
+
+  color: #61758f;
+
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.why-mini-arrow {
+  align-self: center;
+
+  padding:
+    7px 10px;
+
+  color: #a74b00;
+  background: #fff1e6;
+
+  border-radius: 999px;
+
+  font-size: 0.77rem;
+  font-weight: 850;
+}
+
+
+/* ---------------------------------------------------------
+   SOURCES
+   --------------------------------------------------------- */
+
+.why-source {
+  margin:
+    22px 0 0;
+
+  color: #71849b;
+
+  font-size: 0.76rem;
+
+  line-height: 1.6;
+}
+
+.why-source a {
+  color: #0a4d9b;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+}
+
+
+/* =========================================================
+   OHIO
+   ========================================================= */
+
+.why-ohio-section {
+  padding:
+    105px 0;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b315f,
+      #061c3e
+    );
+}
+
+.why-section-heading-light h2 {
+  color: #ffffff;
+}
+
+.why-ohio-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.why-ohio-stat {
+  min-height: 245px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 18px;
+}
+
+.why-ohio-stat > span {
+  color: #86bfff;
+
+  font-size: 0.68rem;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+}
+
+.why-ohio-stat strong {
+  margin:
+    30px 0 15px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.9rem, 5vw, 4.4rem);
+  font-weight: 850;
+
+  line-height: 0.95;
+}
+
+.why-ohio-stat p {
+  margin: auto 0 0;
+
+  color: #bdcee1;
+
+  font-size: 0.86rem;
+
+  line-height: 1.5;
+}
+
+.why-ohio-stat-orange {
+  background:
+    rgba(255, 106, 0, 0.1);
+
+  border-color:
+    rgba(255, 106, 0, 0.38);
+}
+
+.why-ohio-stat-orange > span,
+.why-ohio-stat-orange strong {
+  color: #ff8b38;
+}
+
+.why-source-dark {
+  color: #9eb7d1;
+}
+
+.why-source-dark a {
+  color: #8bc4ff;
+}
+
+
+/* =========================================================
+   2026
+   ========================================================= */
+
+.why-2026-section {
+  padding:
+    105px 0;
+
+  color: #ffffff;
+
+  background: #020c1b;
+}
+
+.why-2026-topline {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 55px;
+
+  color: #a9bfd8;
+
+  font-size: 0.75rem;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+}
+
+.why-live-dot {
+  width: 10px;
+  height: 10px;
+
+  display: block;
+
+  background: #ff6a00;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 6px
+    rgba(255, 106, 0, 0.13);
+}
+
+.why-2026-content {
+  display: grid;
+
+  grid-template-columns:
+    1.1fr 0.9fr;
+
+  gap: 90px;
+
+  align-items: start;
+}
+
+.why-2026-content h2 {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.05em;
+}
+
+.why-2026-copy {
+  padding-top: 10px;
+
+  color: #c5d5e8;
+
+  font-size: 1.15rem;
+
+  line-height: 1.7;
+}
+
+.why-2026-copy p {
+  margin:
+    0 0 18px;
+}
+
+.why-2026-copy
+.why-2026-age {
+  color: #68adff;
+
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+.why-reporting-note {
+  max-width: 900px;
+
+  margin-top: 65px;
+
+  padding:
+    28px 32px;
+
+  color: #b8c9dc;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border-left:
+    4px solid #0876f9;
+}
+
+.why-reporting-note strong {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+}
+
+.why-reporting-note p {
+  margin:
+    0 0 12px;
+}
+
+.why-reporting-note p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   WHAT DATA CANNOT SHOW
+   ========================================================= */
+
+.why-meaning-section {
+  padding:
+    115px 0;
+
+  background: #ffffff;
+}
+
+.why-meaning-section h2 {
+  margin:
+    0 0 34px;
+
+  color: #10294b;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  line-height: 1.08;
+
+  letter-spacing: -0.045em;
+}
+
+.why-meaning-section p:not(.why-kicker) {
+  color: #4f6681;
+
+  font-size: 1.14rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.why-final {
+  padding:
+    110px 0;
+
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at center top,
+      rgba(8, 118, 249, 0.22),
+      transparent 38%
+    ),
+    #061c3e;
+}
+
+.why-final-inner {
+  text-align: center;
+}
+
+.why-final-mark-tile {
+  width: 116px;
+  height: 116px;
+
+  margin:
+    0 auto 30px;
+
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 18px 42px
+    rgba(0, 0, 0, 0.22);
+}
+
+.why-final-mark-tile img {
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  object-fit: contain;
+}
+
+.why-final h2 {
+  margin:
+    0 0 28px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.05em;
+}
+
+.why-final h2 span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #68adff;
+}
+
+.why-final p:not(.why-kicker) {
+  max-width: 700px;
+
+  margin:
+    0 auto 35px;
+
+  color: #bdcee1;
+
+  font-size: 1.08rem;
+
+  line-height: 1.7;
+}
+
+.why-final-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 960px) {
+
+  .why-hero-grid {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .why-hero-copy {
+    padding:
+      70px 0 55px;
+  }
+
+  .why-hero-image {
+    width: min(100%, 560px);
+
+    margin-inline: auto;
+  }
+
+  .why-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .why-stat {
+    min-height: 0;
+  }
+
+  .why-worker-comparison {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .why-ohio-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .why-2026-content {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  .why-shell,
+  .why-reading-width,
+  .why-essay {
+    width:
+      min(calc(100% - 30px), 1180px);
+  }
+
+  .why-hero-copy h1 {
+    font-size:
+      clamp(3rem, 15vw, 4.7rem);
+  }
+
+  .why-author span {
+    display: block;
+
+    margin:
+      3px 0 0;
+  }
+
+  .why-hero-image-caption {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .why-essay-section {
+    padding:
+      70px 0 80px;
+  }
+
+  .why-essay {
+    font-size: 1.04rem;
+
+    line-height: 1.82;
+  }
+
+  .why-essay
+  .why-lede {
+    font-size: 1.23rem;
+  }
+
+  .why-essay h2 {
+    margin-top: 65px;
+
+    font-size: 2.05rem;
+  }
+
+  .why-story-pause {
+    margin:
+      50px 0 55px;
+  }
+
+  .why-story-pause-main {
+    font-size: 1.2rem;
+  }
+
+  .why-story-pause-soft {
+    font-size: 1rem;
+  }
+
+  .why-essay-ending {
+    margin-top: 60px;
+
+    padding:
+      28px 24px;
+  }
+
+  .why-data-bridge {
+    padding:
+      75px 0;
+  }
+
+  .why-data-bridge h2 {
+    font-size: 2.55rem;
+  }
+
+  .why-data-section,
+  .why-ohio-section,
+  .why-2026-section,
+  .why-meaning-section,
+  .why-final {
+    padding:
+      75px 0;
+  }
+
+  .why-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .why-data-badge {
+    white-space: normal;
+  }
+
+  .why-chart-card {
+    padding:
+      24px 16px;
+  }
+
+  .why-worker-comparison {
+    padding: 28px 22px;
+  }
+
+  .why-ohio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-ohio-stat {
+    min-height: 200px;
+  }
+
+  .why-2026-topline {
+    line-height: 1.5;
+  }
+
+  .why-2026-content h2 {
+    font-size: 2.55rem;
+  }
+
+  .why-reporting-note {
+    margin-top: 45px;
+
+    padding:
+      24px 22px;
+  }
+
+  .why-final h2 {
+    font-size: 2.55rem;
+  }
+
+  .why-final-actions {
+    flex-direction: column;
+  }
+
+  .why-final-actions .button {
+    width: 100%;
+  }
+
+}
