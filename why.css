@@ -1,6 +1,7 @@
 /* =========================================================
    PROJECT JORDAN THOMAS
    WHY PAGE
+   MOBILE-FIRST RESPONSIVE PASS
    ========================================================= */
 
 
@@ -161,6 +162,7 @@
   border-radius: 12px;
 
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .why-hero-image-caption strong {
@@ -241,9 +243,6 @@
 
 /* ---------------------------------------------------------
    NARRATIVE PAUSE
-
-   This intentionally does NOT look like a blockquote.
-   It is part of Kay's own first-person narrative.
    --------------------------------------------------------- */
 
 .why-story-pause {
@@ -558,8 +557,9 @@
 
 .why-chart-scroll {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
-  padding-bottom: 4px;
+  padding-bottom: 8px;
 }
 
 .why-bar-chart {
@@ -751,6 +751,8 @@
   font-size: 0.76rem;
 
   line-height: 1.6;
+
+  overflow-wrap: anywhere;
 }
 
 .why-source a {
@@ -896,6 +898,8 @@
   width: 10px;
   height: 10px;
 
+  flex: 0 0 auto;
+
   display: block;
 
   background: #ff6a00;
@@ -947,8 +951,7 @@
     0 0 18px;
 }
 
-.why-2026-copy
-.why-2026-age {
+.why-2026-copy .why-2026-age {
   color: #68adff;
 
   font-size: 1.65rem;
@@ -1123,10 +1126,60 @@
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLETS
    ========================================================= */
 
-@media (max-width: 960px) {
+@media (max-width: 1050px) {
+
+  .why-shell {
+    width: min(calc(100% - 40px), 1180px);
+  }
+
+  .why-reading-width,
+  .why-essay {
+    width: min(calc(100% - 40px), 760px);
+  }
+
+  .why-hero-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(300px, 0.72fr);
+
+    gap: 52px;
+  }
+
+  .why-hero-copy h1 {
+    font-size:
+      clamp(3.2rem, 6vw, 4.9rem);
+  }
+
+  .why-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .why-stats .why-stat:last-child {
+    grid-column:
+      1 / -1;
+  }
+
+  .why-ohio-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .why-2026-content {
+    gap: 55px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
 
   .why-hero-grid {
     min-height: auto;
@@ -1138,7 +1191,16 @@
 
   .why-hero-copy {
     padding:
-      70px 0 55px;
+      68px 0 50px;
+  }
+
+  .why-hero-copy h1 {
+    max-width: 760px;
+
+    font-size:
+      clamp(3rem, 8vw, 4.5rem);
+
+    line-height: 1;
   }
 
   .why-hero-image {
@@ -1147,33 +1209,47 @@
     margin-inline: auto;
   }
 
-  .why-stats {
-    grid-template-columns: 1fr;
+  .why-hero-image img {
+    max-height: 620px;
   }
 
-  .why-stat {
-    min-height: 0;
+  .why-essay-section {
+    padding:
+      90px 0 100px;
+  }
+
+  .why-section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .why-data-badge {
+    white-space: normal;
   }
 
   .why-worker-comparison {
     grid-template-columns: 1fr;
 
-    gap: 25px;
-  }
-
-  .why-ohio-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    gap: 28px;
   }
 
   .why-2026-content {
     grid-template-columns: 1fr;
 
-    gap: 35px;
+    gap: 32px;
+  }
+
+  .why-2026-copy {
+    padding-top: 0;
   }
 
 }
 
+
+/* =========================================================
+   PHONES
+   ========================================================= */
 
 @media (max-width: 700px) {
 
@@ -1184,9 +1260,39 @@
       min(calc(100% - 30px), 1180px);
   }
 
+  .why-kicker {
+    margin-bottom: 12px;
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.13em;
+  }
+
+
+  /* HERO */
+
+  .why-hero-copy {
+    padding:
+      54px 0 38px;
+  }
+
   .why-hero-copy h1 {
     font-size:
-      clamp(3rem, 15vw, 4.7rem);
+      clamp(2.55rem, 12vw, 3.45rem);
+
+    line-height: 1.01;
+  }
+
+  .why-hero-copy h1 span {
+    margin-top: 7px;
+  }
+
+  .why-author {
+    margin-top: 22px;
+
+    font-size: 0.92rem;
+
+    line-height: 1.5;
   }
 
   .why-author span {
@@ -1196,123 +1302,509 @@
       3px 0 0;
   }
 
-  .why-hero-image-caption {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
+  .why-hero-image {
+    max-width: 100%;
   }
+
+  .why-hero-image img {
+    max-height: none;
+
+    border-radius:
+      18px 18px 0 0;
+  }
+
+  .why-hero-image-caption {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    padding: 13px 14px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3px;
+
+    border-radius: 10px;
+  }
+
+  .why-hero-image-caption strong {
+    font-size: 0.88rem;
+  }
+
+  .why-hero-image-caption span {
+    font-size: 0.74rem;
+  }
+
+
+  /* ESSAY */
 
   .why-essay-section {
     padding:
-      70px 0 80px;
+      62px 0 72px;
   }
 
   .why-essay {
-    font-size: 1.04rem;
+    font-size: 1.03rem;
 
-    line-height: 1.82;
+    line-height: 1.8;
   }
 
-  .why-essay
-  .why-lede {
-    font-size: 1.23rem;
+  .why-essay p {
+    margin-bottom: 24px;
+  }
+
+  .why-essay .why-lede {
+    margin-bottom: 30px;
+
+    font-size: 1.22rem;
+
+    line-height: 1.65;
   }
 
   .why-essay h2 {
-    margin-top: 65px;
+    margin:
+      58px 0 24px;
 
-    font-size: 2.05rem;
+    font-size:
+      clamp(1.95rem, 8.5vw, 2.45rem);
+
+    line-height: 1.09;
   }
 
   .why-story-pause {
     margin:
-      50px 0 55px;
+      44px 0 48px;
   }
 
   .why-story-pause-main {
-    font-size: 1.2rem;
+    margin-bottom: 13px !important;
+
+    font-size: 1.16rem;
+
+    line-height: 1.6;
   }
 
   .why-story-pause-soft {
-    font-size: 1rem;
+    font-size: 0.98rem;
+
+    line-height: 1.65;
   }
 
   .why-essay-ending {
-    margin-top: 60px;
+    margin-top: 52px;
 
     padding:
-      28px 24px;
+      26px 22px;
+
+    border-radius: 14px;
+
+    font-size:
+      clamp(1.45rem, 7vw, 1.95rem);
   }
+
+
+  /* DATA BRIDGE */
 
   .why-data-bridge {
     padding:
-      75px 0;
+      62px 0;
   }
 
   .why-data-bridge h2 {
-    font-size: 2.55rem;
+    margin-bottom: 22px;
+
+    font-size:
+      clamp(2rem, 9vw, 2.55rem);
+
+    line-height: 1.07;
   }
 
-  .why-data-section,
-  .why-ohio-section,
-  .why-2026-section,
-  .why-meaning-section,
-  .why-final {
+  .why-data-bridge p:last-child {
+    font-size: 1rem;
+
+    line-height: 1.65;
+  }
+
+
+  /* NATIONAL DATA */
+
+  .why-data-section {
     padding:
-      75px 0;
+      62px 0 70px;
   }
 
   .why-section-heading {
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 20px;
+
+    margin-bottom: 34px;
+  }
+
+  .why-section-heading h2 {
+    font-size:
+      clamp(2rem, 8.5vw, 2.55rem);
+
+    line-height: 1.08;
   }
 
   .why-data-badge {
-    white-space: normal;
+    max-width: 100%;
+
+    padding: 8px 11px;
+
+    font-size: 0.68rem;
+    line-height: 1.4;
   }
+
+  .why-stats {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .why-stats .why-stat:last-child {
+    grid-column: auto;
+  }
+
+  .why-stat {
+    min-height: 0;
+
+    padding:
+      24px 22px;
+
+    border-radius: 14px;
+  }
+
+  .why-stat strong {
+    margin-bottom: 16px;
+
+    font-size:
+      clamp(3.15rem, 16vw, 4.25rem);
+  }
+
+  .why-stat p {
+    margin-bottom: 18px;
+
+    font-size: 1rem;
+  }
+
+  .why-stat span {
+    font-size: 0.66rem;
+  }
+
+
+  /* GRAPH */
 
   .why-chart-card {
     padding:
-      24px 16px;
+      22px 14px;
+
+    border-radius: 16px;
   }
 
+  .why-chart-header {
+    margin-bottom: 15px;
+  }
+
+  .why-chart-header h3 {
+    font-size: 1.35rem;
+  }
+
+  .why-chart-header p:last-child {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .why-chart-scroll {
+    margin-right: -4px;
+    padding-bottom: 10px;
+  }
+
+  .why-bar-chart {
+    min-width: 620px;
+  }
+
+
+  /* WORKER COMPARISON */
+
   .why-worker-comparison {
-    padding: 28px 22px;
+    margin-top: 20px;
+
+    gap: 24px;
+
+    padding:
+      26px 20px;
+
+    border-radius: 16px;
+  }
+
+  .why-worker-copy h3 {
+    font-size:
+      clamp(1.65rem, 7vw, 2rem);
+  }
+
+  .why-mini-chart {
+    min-height: 230px;
+
+    gap: 20px;
+  }
+
+  .why-mini-column {
+    min-width: 72px;
+  }
+
+  .why-mini-column strong {
+    font-size: 1.15rem;
+  }
+
+  .why-mini-bar {
+    width: 54px;
+  }
+
+  .why-mini-column span {
+    font-size: 0.72rem;
+
+    text-align: center;
+  }
+
+  .why-mini-arrow {
+    padding:
+      6px 8px;
+
+    font-size: 0.68rem;
+  }
+
+  .why-source {
+    font-size: 0.7rem;
+  }
+
+
+  /* OHIO */
+
+  .why-ohio-section {
+    padding:
+      62px 0;
   }
 
   .why-ohio-grid {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
 
   .why-ohio-stat {
-    min-height: 200px;
-  }
-
-  .why-2026-topline {
-    line-height: 1.5;
-  }
-
-  .why-2026-content h2 {
-    font-size: 2.55rem;
-  }
-
-  .why-reporting-note {
-    margin-top: 45px;
+    min-height: 0;
 
     padding:
       24px 22px;
+
+    border-radius: 14px;
+  }
+
+  .why-ohio-stat strong {
+    margin:
+      22px 0 12px;
+
+    font-size:
+      clamp(2.8rem, 14vw, 3.7rem);
+  }
+
+  .why-ohio-stat p {
+    margin-top: 10px;
+
+    font-size: 0.82rem;
+  }
+
+
+  /* 2026 */
+
+  .why-2026-section {
+    padding:
+      62px 0;
+  }
+
+  .why-2026-topline {
+    align-items: flex-start;
+
+    margin-bottom: 34px;
+
+    font-size: 0.68rem;
+
+    line-height: 1.5;
+  }
+
+  .why-live-dot {
+    margin-top: 3px;
+  }
+
+  .why-2026-content {
+    gap: 24px;
+  }
+
+  .why-2026-content h2 {
+    font-size:
+      clamp(2rem, 9vw, 2.55rem);
+
+    line-height: 1.07;
+  }
+
+  .why-2026-copy {
+    font-size: 1rem;
+
+    line-height: 1.65;
+  }
+
+  .why-2026-copy .why-2026-age {
+    font-size: 1.35rem;
+  }
+
+  .why-reporting-note {
+    margin-top: 38px;
+
+    padding:
+      22px 18px;
+
+    border-left-width: 3px;
+
+    font-size: 0.92rem;
+  }
+
+
+  /* MEANING */
+
+  .why-meaning-section {
+    padding:
+      66px 0;
+  }
+
+  .why-meaning-section h2 {
+    margin-bottom: 24px;
+
+    font-size:
+      clamp(2rem, 8.5vw, 2.5rem);
+
+    line-height: 1.08;
+  }
+
+  .why-meaning-section p:not(.why-kicker) {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+
+  /* FINAL */
+
+  .why-final {
+    padding:
+      66px 0;
+  }
+
+  .why-final-mark-tile {
+    width: 92px;
+    height: 92px;
+
+    margin-bottom: 24px;
+
+    padding: 11px;
+
+    border-radius: 20px;
   }
 
   .why-final h2 {
-    font-size: 2.55rem;
+    margin-bottom: 22px;
+
+    font-size:
+      clamp(2rem, 9vw, 2.55rem);
+
+    line-height: 1.07;
+  }
+
+  .why-final p:not(.why-kicker) {
+    margin-bottom: 28px;
+
+    font-size: 1rem;
+
+    line-height: 1.65;
   }
 
   .why-final-actions {
-    flex-direction: column;
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
   }
 
   .why-final-actions .button {
     width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+  .why-shell,
+  .why-reading-width,
+  .why-essay {
+    width:
+      min(calc(100% - 24px), 1180px);
+  }
+
+  .why-hero-copy h1 {
+    font-size:
+      clamp(2.35rem, 11.5vw, 2.9rem);
+  }
+
+  .why-author {
+    font-size: 0.86rem;
+  }
+
+  .why-essay {
+    font-size: 1rem;
+  }
+
+  .why-essay .why-lede {
+    font-size: 1.16rem;
+  }
+
+  .why-mini-chart {
+    gap: 14px;
+  }
+
+  .why-mini-column {
+    min-width: 64px;
+  }
+
+  .why-mini-bar {
+    width: 48px;
+  }
+
+  .why-mini-arrow {
+    padding:
+      5px 7px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 
 }
