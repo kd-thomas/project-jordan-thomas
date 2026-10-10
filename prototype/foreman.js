@@ -1,38 +1,8 @@
-function getReport() {
+const getReport =
+  JordanState.getReport;
 
-  try {
-
-    return JSON.parse(
-      localStorage.getItem(
-        "jordanPrototypeReport"
-      ) || "{}"
-    );
-
-  } catch {
-
-    return {};
-
-  }
-
-}
-
-
-function saveReport(report) {
-
-  const value =
-    JSON.stringify(report);
-
-  localStorage.setItem(
-    "jordanPrototypeReport",
-    value
-  );
-
-  sessionStorage.setItem(
-    "jordanPrototypeReport",
-    value
-  );
-
-}
+const saveReport =
+  JordanState.saveReport;
 
 
 const report =
@@ -400,18 +370,14 @@ if (liveIncidentPill) {
  * 6 / 6
  */
 
-let acknowledgedCount =
-  report.crewBriefed === true
-    ? 6
-    : (
-        report.acknowledged === true
-          ? 1
-          : 0
-      );
-
-
 const totalCrew =
   6;
+
+
+let acknowledgedCount =
+  JordanState.getAcknowledgedCount(
+    totalCrew
+  );
 
 
 function renderCrewState() {
@@ -481,9 +447,28 @@ function renderCrewState() {
           true;
 
       } else if (
+        Array.isArray(
+          report.acknowledgedBy
+        ) &&
+        report.acknowledgedBy.includes(
+          "Kay Thomas"
+        ) &&
+        index === 0
+      ) {
+
+        shouldAcknowledge =
+          true;
+
+      } else if (
         report.acknowledged === true &&
         index === 0
       ) {
+
+        /*
+         * Backward compatibility for
+         * reports created before
+         * acknowledgedBy existed.
+         */
 
         shouldAcknowledge =
           true;
@@ -811,21 +796,7 @@ if (markCrewBriefedButton) {
     "click",
     () => {
 
-      const currentReport =
-        getReport();
-
-
-      currentReport.crewBriefed =
-        true;
-
-
-      currentReport.crewBriefedAt =
-        new Date().toISOString();
-
-
-      saveReport(
-        currentReport
-      );
+      JordanState.markCrewBriefed();
 
 
       window.location.reload();

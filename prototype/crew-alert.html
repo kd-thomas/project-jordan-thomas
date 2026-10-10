@@ -268,44 +268,12 @@
   </div>
 
 
+  <script src="jordan-state.js"></script>
+
   <script>
 
-    function getReport() {
-
-      try {
-
-        return JSON.parse(
-          localStorage.getItem(
-            "jordanPrototypeReport"
-          ) || "{}"
-        );
-
-      } catch {
-
-        return {};
-
-      }
-
-    }
-
-
-    function saveReport(report) {
-
-      const value =
-        JSON.stringify(report);
-
-      localStorage.setItem(
-        "jordanPrototypeReport",
-        value
-      );
-
-      sessionStorage.setItem(
-        "jordanPrototypeReport",
-        value
-      );
-
-    }
-
+    const getReport =
+      JordanState.getReport;
 
     let report =
       getReport();
@@ -496,20 +464,9 @@
       () => {
 
         report =
-          getReport();
-
-
-        report.acknowledged =
-          true;
-
-
-        report.acknowledgedAt =
-          new Date().toISOString();
-
-
-        saveReport(
-          report
-        );
+          JordanState.acknowledgeWorker(
+            "Kay Thomas"
+          );
 
 
         renderAcknowledgement();

@@ -8,53 +8,17 @@
    STORAGE
    ========================================= */
 
-function getReport() {
+const getReport =
+  JordanState.getReport;
 
-  try {
-
-    return JSON.parse(
-      localStorage.getItem(
-        "jordanPrototypeReport"
-      ) || "{}"
-    );
-
-  } catch (error) {
-
-    console.error(
-      "Unable to read JORDAN prototype report:",
-      error
-    );
-
-    return {};
-
-  }
-
-}
-
-
-function saveReport(report) {
-
-  const serialized =
-    JSON.stringify(report);
-
-
-  localStorage.setItem(
-    "jordanPrototypeReport",
-    serialized
-  );
-
-
-  sessionStorage.setItem(
-    "jordanPrototypeReport",
-    serialized
-  );
-
-}
+const saveReport =
+  JordanState.saveReport;
 
 
 /* =========================================
    REPORT
    ========================================= */
+
 
 let report =
   getReport();
@@ -216,13 +180,9 @@ const totalCrew =
  */
 
 let acknowledgedCount =
-  report.crewBriefed === true
-    ? totalCrew
-    : (
-        report.acknowledged === true
-          ? 1
-          : 0
-      );
+  JordanState.getAcknowledgedCount(
+    totalCrew
+  );
 
 
 /* =========================================
@@ -465,24 +425,13 @@ if (briefCrewButton) {
     () => {
 
       report =
-        getReport();
-
-
-      report.crewBriefed =
-        true;
-
-
-      report.crewBriefedAt =
-        new Date().toISOString();
-
-
-      saveReport(
-        report
-      );
+        JordanState.markCrewBriefed();
 
 
       acknowledgedCount =
-        totalCrew;
+        JordanState.getAcknowledgedCount(
+          totalCrew
+        );
 
 
       renderCrewResponse();
@@ -887,77 +836,38 @@ if (saveIncidentButton) {
       }
 
 
-      report =
-        getReport();
-
-
-      const now =
-        new Date().toISOString();
-
-
-      report.supervisorAction =
-        selectedAction;
-
-
-      report.supervisorNote =
+      const note =
         supervisorNote
           ? supervisorNote.value.trim()
           : "";
 
-
-      report.supervisorUpdatedAt =
-        now;
-
-
-      /* =====================================
-         RESOLVE
-         ===================================== */
 
       if (
         selectedStatus ===
         "resolved"
       ) {
 
-        report.status =
-          "Resolved";
-
-
-        report.resolved =
-          true;
-
-
-        report.resolvedAt =
-          now;
+        report =
+          JordanState.resolveIncident(
+            selectedAction,
+            note
+          );
 
       }
 
-
-      /* =====================================
-         MONITOR
-         ===================================== */
 
       if (
         selectedStatus ===
         "monitoring"
       ) {
 
-        report.status =
-          "Monitoring";
-
-
-        report.resolved =
-          false;
-
-
-        report.resolvedAt =
-          null;
+        report =
+          JordanState.setMonitoring(
+            selectedAction,
+            note
+          );
 
       }
-
-
-      saveReport(
-        report
-      );
 
 
       window.location.href =

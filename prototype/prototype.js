@@ -114,46 +114,17 @@ let photoAttached = false;
    STORAGE
    ========================================= */
 
-function getReport() {
+const getReport =
+  JordanState.getReport;
 
-  try {
-
-    return JSON.parse(
-      localStorage.getItem(
-        "jordanPrototypeReport"
-      ) || "{}"
-    );
-
-  } catch {
-
-    return {};
-
-  }
-
-}
-
-
-function saveReport(report) {
-
-  const value =
-    JSON.stringify(report);
-
-  localStorage.setItem(
-    "jordanPrototypeReport",
-    value
-  );
-
-  sessionStorage.setItem(
-    "jordanPrototypeReport",
-    value
-  );
-
-}
+const saveReport =
+  JordanState.saveReport;
 
 
 /* =========================================
    TIME
    ========================================= */
+
 
 function formatTime(timestamp) {
 
@@ -737,15 +708,7 @@ function togglePhoto() {
 
 function createReport() {
 
-  const now =
-    new Date();
-
-
-  return {
-
-    id:
-      `JORDAN-${now.getTime()}`,
-
+  return JordanState.createReport({
     hazard:
       selectedHazard,
 
@@ -770,39 +733,14 @@ function createReport() {
     location:
       "Work-zone GPS",
 
-    timestamp:
-      now.toISOString(),
+    reporter:
+      "Kay Thomas",
 
     status:
       selectedUrgency === "active"
         ? "Active Alert"
-        : "Documented",
-
-    acknowledged:
-      false,
-
-    acknowledgedAt:
-      null,
-
-    crewBriefed:
-      false,
-
-    supervisorAction:
-      null,
-
-    supervisorNote:
-      "",
-
-    supervisorUpdatedAt:
-      null,
-
-    resolved:
-      false,
-
-    resolvedAt:
-      null
-
-  };
+        : "Documented"
+  });
 
 }
 
@@ -820,16 +758,6 @@ function submitReport() {
 
   const report =
     createReport();
-
-
-  /*
-   * This one object replaces all stale
-   * incident flags from previous tests.
-   */
-
-  saveReport(
-    report
-  );
 
 
   /*

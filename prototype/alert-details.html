@@ -379,20 +379,24 @@
   </div>
 
 
+  <script src="jordan-state.js"></script>
+
   <script>
 
     const savedReport =
-      JSON.parse(
-        sessionStorage.getItem(
-          "jordanPrototypeReport"
-        ) || "{}"
-      );
+      JordanState.getReport();
 
 
     const acknowledged =
-      sessionStorage.getItem(
-        "jordanPrototypeAlertAcknowledged"
-      ) === "true";
+      savedReport.acknowledged === true ||
+      (
+        Array.isArray(
+          savedReport.acknowledgedBy
+        ) &&
+        savedReport.acknowledgedBy.includes(
+          "Kay Thomas"
+        )
+      );
 
 
     const detailHazard =
