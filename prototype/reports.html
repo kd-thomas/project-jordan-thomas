@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Safety Reports | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+
+  <style>
+
+    .reports-page {
+      min-height: calc(100vh - 150px);
+      padding-bottom: 120px;
+    }
+
+
+    .reports-page-header {
+      padding: 28px 20px 8px;
+    }
+
+
+    .reports-page-header .section-label {
+      margin-bottom: 8px;
+    }
+
+
+    .reports-page-header h1 {
+      margin: 0;
+      color: #061c3e;
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+
+    .reports-page-header p:last-child {
+      margin: 10px 0 0;
+      color: #8193a8;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+
+    .reports-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 20px;
+    }
+
+
+    .reports-summary-card {
+      padding: 16px;
+      border: 1px solid #d7e1ec;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+
+    .reports-summary-card span {
+      display: block;
+      margin-bottom: 7px;
+      color: #8193a8;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+
+    .reports-summary-card strong {
+      display: block;
+      color: #061c3e;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+
+    .reports-list-section {
+      padding: 4px 20px 24px;
+    }
+
+
+    .reports-list-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+
+    .reports-list-heading h2 {
+      margin: 3px 0 0;
+      color: #061c3e;
+      font-size: 1.45rem;
+    }
+
+
+    .reports-list {
+      display: grid;
+      gap: 12px;
+    }
+
+
+    .report-history-card {
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #d7e1ec;
+      border-radius: 16px;
+      background: #ffffff;
+      color: inherit;
+      text-align: left;
+      appearance: none;
+      cursor: pointer;
+    }
+
+
+    .report-history-card:hover {
+      border-color: #9fc5f8;
+    }
+
+
+    .report-history-card:focus-visible {
+      outline: 3px solid rgba(0, 123, 255, 0.22);
+      outline-offset: 2px;
+    }
+
+
+    .report-history-main {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: start;
+      padding: 17px;
+    }
+
+
+    .report-history-icon {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+
+    .report-history-icon.active,
+    .report-history-icon.monitoring {
+      color: #b7791f;
+      background: #fff5d9;
+    }
+
+
+    .report-history-icon.resolved,
+    .report-history-icon.documented {
+      color: #2f855a;
+      background: #e9f8ef;
+    }
+
+
+    .report-history-copy strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #061c3e;
+      font-size: 1rem;
+    }
+
+
+    .report-history-copy p {
+      margin: 0;
+      color: #8193a8;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+
+    .report-history-meta {
+      display: grid;
+      justify-items: end;
+      gap: 9px;
+      min-width: 86px;
+    }
+
+
+    .report-history-time {
+      color: #91a2b5;
+      font-size: 0.76rem;
+      white-space: nowrap;
+    }
+
+
+    .report-history-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.63rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+
+    .report-history-status.active,
+    .report-history-status.monitoring {
+      color: #a76b08;
+      background: #fff3cf;
+    }
+
+
+    .report-history-status.resolved,
+    .report-history-status.documented {
+      color: #23734c;
+      background: #e5f7ed;
+    }
+
+
+    .report-detail-panel {
+      margin: 0 20px 26px;
+      overflow: hidden;
+      border: 1px solid #cfdbe8;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+
+    .report-detail-panel[hidden] {
+      display: none;
+    }
+
+
+    .report-detail-header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      border-bottom: 1px solid #e1e8f0;
+    }
+
+
+    .report-detail-header h2 {
+      margin: 4px 0 0;
+      color: #061c3e;
+      font-size: 1.45rem;
+    }
+
+
+    .report-detail-close {
+      display: grid;
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid #d2dde9;
+      border-radius: 11px;
+      background: #ffffff;
+      color: #061c3e;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+
+    .report-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #dce5ee;
+    }
+
+
+    .report-detail-item {
+      padding: 16px 20px;
+      background: #ffffff;
+    }
+
+
+    .report-detail-item span {
+      display: block;
+      margin-bottom: 5px;
+      color: #8193a8;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+
+    .report-detail-item strong {
+      color: #061c3e;
+      font-size: 0.93rem;
+    }
+
+
+    .report-detail-section {
+      padding: 18px 20px;
+      border-top: 1px solid #e2e9f1;
+    }
+
+
+    .report-detail-section span {
+      display: block;
+      margin-bottom: 7px;
+      color: #1683ff;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    .report-detail-section p {
+      margin: 0;
+      color: #556b82;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+
+    .report-detail-section.supervisor-response {
+      background: #f7fbff;
+    }
+
+
+    .report-detail-section.supervisor-response.resolved {
+      background: #effaf4;
+    }
+
+
+    .reports-empty {
+      padding: 35px 20px;
+      border: 1px solid #d7e1ec;
+      border-radius: 16px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+
+    .reports-empty strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #061c3e;
+    }
+
+
+    .reports-empty p {
+      margin: 0;
+      color: #8193a8;
+      line-height: 1.5;
+    }
+
+
+    @media (max-width: 540px) {
+
+      .reports-summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .report-history-main {
+        grid-template-columns: auto 1fr;
+      }
+
+
+      .report-history-meta {
+        grid-column: 2;
+        grid-row: 2;
+        justify-items: start;
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-content: start;
+      }
+
+
+      .report-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+    <header class="app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="profile-button"
+        type="button"
+        aria-label="Worker profile"
+      >
+        KT
+      </button>
+
+    </header>
+
+
+    <main class="app-main reports-page">
+
+      <section class="reports-page-header">
+
+        <p class="section-label">
+          SAFETY HISTORY
+        </p>
+
+        <h1>
+          Reports
+        </h1>
+
+        <p>
+          Review hazards you reported and see what happened after they were submitted.
+        </p>
+
+      </section>
+
+
+      <section class="reports-summary-grid">
+
+        <article class="reports-summary-card">
+
+          <span>
+            Reports Today
+          </span>
+
+          <strong id="reportsTodayCount">
+            3
+          </strong>
+
+        </article>
+
+
+        <article class="reports-summary-card">
+
+          <span>
+            Open
+          </span>
+
+          <strong id="reportsOpenCount">
+            0
+          </strong>
+
+        </article>
+
+
+        <article class="reports-summary-card">
+
+          <span>
+            Resolved
+          </span>
+
+          <strong id="reportsResolvedCount">
+            0
+          </strong>
+
+        </article>
+
+      </section>
+
+
+      <section
+        class="report-detail-panel"
+        id="reportDetailPanel"
+        hidden
+      >
+
+        <div class="report-detail-header">
+
+          <div>
+
+            <p class="section-label">
+              REPORT DETAILS
+            </p>
+
+            <h2 id="detailHazard">
+              Safety Report
+            </h2>
+
+          </div>
+
+
+          <button
+            class="report-detail-close"
+            id="detailCloseButton"
+            type="button"
+            aria-label="Close report details"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="report-detail-grid">
+
+          <div class="report-detail-item">
+
+            <span>
+              Status
+            </span>
+
+            <strong id="detailStatus">
+              Active
+            </strong>
+
+          </div>
+
+
+          <div class="report-detail-item">
+
+            <span>
+              Reported
+            </span>
+
+            <strong id="detailTime">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="report-detail-item">
+
+            <span>
+              Work Zone
+            </span>
+
+            <strong id="detailWorkZone">
+              I-70 Eastbound
+            </strong>
+
+          </div>
+
+
+          <div class="report-detail-item">
+
+            <span>
+              Crew
+            </span>
+
+            <strong id="detailCrew">
+              Crew A
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="report-detail-section">
+
+          <span>
+            Reporter Note
+          </span>
+
+          <p id="detailReporterNote">
+            No reporter note was provided.
+          </p>
+
+        </div>
+
+
+        <div
+          class="report-detail-section supervisor-response"
+          id="supervisorResponseSection"
+        >
+
+          <span>
+            Supervisor Response
+          </span>
+
+          <p id="detailSupervisorResponse">
+            No supervisor response has been recorded yet.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="reports-list-section">
+
+        <div class="reports-list-heading">
+
+          <div>
+
+            <p class="section-label">
+              TODAY
+            </p>
+
+            <h2>
+              Safety Reports
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="reports-list"
+          id="reportsList"
+        ></div>
+
+      </section>
+
+    </main>
+
+
+    <nav class="bottom-nav">
+
+      <a
+        class="bottom-nav-item"
+        href="index.html"
+      >
+
+        <span class="nav-icon">
+          ◉
+        </span>
+
+        <span>
+          Home
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item active"
+        href="reports.html"
+      >
+
+        <span class="nav-icon">
+          !
+        </span>
+
+        <span>
+          Reports
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item"
+        href="crew.html"
+      >
+
+        <span class="nav-icon">
+          ⦿
+        </span>
+
+        <span>
+          Crew
+        </span>
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <script>
+
+    function getCurrentReport() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "jordanPrototypeReport"
+          ) || "{}"
+        );
+
+      } catch {
+
+        return {};
+
+      }
+
+    }
+
+
+    function formatTime(timestamp) {
+
+      if (!timestamp) {
+        return "—";
+      }
+
+
+      const date =
+        new Date(timestamp);
+
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+
+        return "—";
+
+      }
+
+
+      return new Intl.DateTimeFormat(
+        "en-US",
+        {
+          hour: "numeric",
+          minute: "2-digit"
+        }
+      ).format(date);
+
+    }
+
+
+    function normalizeStatus(report) {
+
+      if (
+        report.resolved === true ||
+        report.status === "Resolved"
+      ) {
+
+        return "Resolved";
+
+      }
+
+
+      if (
+        report.status === "Monitoring"
+      ) {
+
+        return "Monitoring";
+
+      }
+
+
+      if (
+        report.urgency === "document"
+      ) {
+
+        return "Documented";
+
+      }
+
+
+      return "Active";
+
+    }
+
+
+    function buildSupervisorResponse(report) {
+
+      if (
+        report.supervisorAction &&
+        report.supervisorNote
+      ) {
+
+        return `${report.supervisorAction}. ${report.supervisorNote}`;
+
+      }
+
+
+      if (
+        report.supervisorAction
+      ) {
+
+        return report.supervisorAction;
+
+      }
+
+
+      if (
+        report.supervisorNote
+      ) {
+
+        return report.supervisorNote;
+
+      }
+
+
+      return "No supervisor response has been recorded yet.";
+
+    }
+
+
+    const currentReport =
+      getCurrentReport();
+
+
+    const reports = [];
+
+
+    if (
+      currentReport.id
+    ) {
+
+      reports.push({
+
+        id:
+          currentReport.id,
+
+        hazard:
+          currentReport.hazard ||
+          "Safety Hazard",
+
+        note:
+          currentReport.note ||
+          "No reporter note was provided.",
+
+        status:
+          normalizeStatus(
+            currentReport
+          ),
+
+        timestamp:
+          currentReport.timestamp,
+
+        time:
+          formatTime(
+            currentReport.timestamp
+          ),
+
+        workZone:
+          currentReport.workZone ||
+          "I-70 Eastbound",
+
+        crew:
+          currentReport.crew ||
+          "Crew A",
+
+        supervisorResponse:
+          buildSupervisorResponse(
+            currentReport
+          )
+
+      });
+
+    }
+
+
+    reports.push(
+
+      {
+
+        id:
+          "demo-unsafe-shoulder",
+
+        hazard:
+          "Unsafe shoulder condition",
+
+        note:
+          "Loose material identified near the eastbound taper.",
+
+        status:
+          "Resolved",
+
+        time:
+          "8:42 AM",
+
+        workZone:
+          "I-70 Eastbound",
+
+        crew:
+          "Crew A",
+
+        supervisorResponse:
+          "Hazard removed. Loose material was cleared from the shoulder area."
+
+      },
+
+      {
+
+        id:
+          "demo-speed-concern",
+
+        hazard:
+          "Speed concern",
+
+        note:
+          "Multiple vehicles observed entering the work zone above the posted speed.",
+
+        status:
+          "Monitoring",
+
+        time:
+          "7:18 AM",
+
+        workZone:
+          "I-70 Eastbound",
+
+        crew:
+          "Crew A",
+
+        supervisorResponse:
+          "Continue Monitoring. Crew was reminded to remain alert near the active taper."
+
+      }
+
+    );
+
+
+    const reportsList =
+      document.querySelector(
+        "#reportsList"
+      );
+
+
+    const reportsTodayCount =
+      document.querySelector(
+        "#reportsTodayCount"
+      );
+
+
+    const reportsOpenCount =
+      document.querySelector(
+        "#reportsOpenCount"
+      );
+
+
+    const reportsResolvedCount =
+      document.querySelector(
+        "#reportsResolvedCount"
+      );
+
+
+    const reportDetailPanel =
+      document.querySelector(
+        "#reportDetailPanel"
+      );
+
+
+    const detailCloseButton =
+      document.querySelector(
+        "#detailCloseButton"
+      );
+
+
+    const detailHazard =
+      document.querySelector(
+        "#detailHazard"
+      );
+
+
+    const detailStatus =
+      document.querySelector(
+        "#detailStatus"
+      );
+
+
+    const detailTime =
+      document.querySelector(
+        "#detailTime"
+      );
+
+
+    const detailWorkZone =
+      document.querySelector(
+        "#detailWorkZone"
+      );
+
+
+    const detailCrew =
+      document.querySelector(
+        "#detailCrew"
+      );
+
+
+    const detailReporterNote =
+      document.querySelector(
+        "#detailReporterNote"
+      );
+
+
+    const detailSupervisorResponse =
+      document.querySelector(
+        "#detailSupervisorResponse"
+      );
+
+
+    const supervisorResponseSection =
+      document.querySelector(
+        "#supervisorResponseSection"
+      );
+
+
+    function renderCounts() {
+
+      const openCount =
+        reports.filter(
+          (report) =>
+            report.status === "Active" ||
+            report.status === "Monitoring"
+        ).length;
+
+
+      const resolvedCount =
+        reports.filter(
+          (report) =>
+            report.status === "Resolved"
+        ).length;
+
+
+      reportsTodayCount.textContent =
+        reports.length;
+
+
+      reportsOpenCount.textContent =
+        openCount;
+
+
+      reportsResolvedCount.textContent =
+        resolvedCount;
+
+    }
+
+
+    function statusClass(status) {
+
+      return status
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+
+    }
+
+
+    function statusIcon(status) {
+
+      if (
+        status === "Resolved" ||
+        status === "Documented"
+      ) {
+
+        return "✓";
+
+      }
+
+
+      return "!";
+
+    }
+
+
+    function renderReports() {
+
+      reportsList.innerHTML =
+        "";
+
+
+      if (
+        reports.length === 0
+      ) {
+
+        reportsList.innerHTML =
+          `
+            <div class="reports-empty">
+              <strong>No reports yet</strong>
+              <p>
+                Safety reports you submit will appear here.
+              </p>
+            </div>
+          `;
+
+
+        return;
+
+      }
+
+
+      reports.forEach(
+        (report) => {
+
+          const status =
+            statusClass(
+              report.status
+            );
+
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type =
+            "button";
+
+
+          button.className =
+            "report-history-card";
+
+
+          button.dataset.reportId =
+            report.id;
+
+
+          button.innerHTML =
+            `
+              <div class="report-history-main">
+
+                <div
+                  class="report-history-icon ${status}"
+                >
+                  ${statusIcon(report.status)}
+                </div>
+
+                <div class="report-history-copy">
+
+                  <strong>
+                    ${escapeHtml(report.hazard)}
+                  </strong>
+
+                  <p>
+                    ${escapeHtml(report.note)}
+                  </p>
+
+                </div>
+
+                <div class="report-history-meta">
+
+                  <span class="report-history-time">
+                    ${escapeHtml(report.time)}
+                  </span>
+
+                  <span
+                    class="report-history-status ${status}"
+                  >
+                    ${escapeHtml(report.status)}
+                  </span>
+
+                </div>
+
+              </div>
+            `;
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              openReportDetails(
+                report.id
+              );
+
+            }
+          );
+
+
+          reportsList.appendChild(
+            button
+          );
+
+        }
+      );
+
+    }
+
+
+    function openReportDetails(reportId) {
+
+      const report =
+        reports.find(
+          (item) =>
+            item.id === reportId
+        );
+
+
+      if (!report) {
+        return;
+      }
+
+
+      detailHazard.textContent =
+        report.hazard;
+
+
+      detailStatus.textContent =
+        report.status;
+
+
+      detailTime.textContent =
+        report.time;
+
+
+      detailWorkZone.textContent =
+        report.workZone;
+
+
+      detailCrew.textContent =
+        report.crew;
+
+
+      detailReporterNote.textContent =
+        report.note;
+
+
+      detailSupervisorResponse.textContent =
+        report.supervisorResponse;
+
+
+      if (
+        report.status === "Resolved"
+      ) {
+
+        supervisorResponseSection.classList.add(
+          "resolved"
+        );
+
+      } else {
+
+        supervisorResponseSection.classList.remove(
+          "resolved"
+        );
+
+      }
+
+
+      reportDetailPanel.hidden =
+        false;
+
+
+      reportDetailPanel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+
+    function closeReportDetails() {
+
+      reportDetailPanel.hidden =
+        true;
+
+    }
+
+
+    detailCloseButton.addEventListener(
+      "click",
+      closeReportDetails
+    );
+
+
+    function escapeHtml(value) {
+
+      return String(value)
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
+    }
+
+
+    renderCounts();
+    renderReports();
+
+  </script>
+
+</body>
+
+</html>

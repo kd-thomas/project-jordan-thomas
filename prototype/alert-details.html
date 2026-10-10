@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Report Details | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <span
+        class="incoming-alert-pill"
+        id="detailsAlertPill"
+      >
+
+        <span class="incoming-alert-dot"></span>
+
+        LIVE ALERT
+
+      </span>
+
+    </header>
+
+
+    <!-- =========================================
+         REPORT DETAILS
+         ========================================= -->
+
+    <main class="app-main alert-details-screen">
+
+      <section class="report-flow-header">
+
+        <button
+          class="back-button"
+          id="alertDetailsBackButton"
+          type="button"
+          aria-label="Go back"
+        >
+          ←
+        </button>
+
+        <div>
+
+          <p class="section-label">
+            SAFETY REPORT
+          </p>
+
+          <h1>
+            Report details
+          </h1>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           REPORT STATUS
+           ========================================= -->
+
+      <section class="alert-detail-status-card">
+
+        <div class="alert-detail-status-top">
+
+          <div>
+
+            <span>
+              HAZARD
+            </span>
+
+            <h2 id="detailHazard">
+              Safety Hazard
+            </h2>
+
+          </div>
+
+
+          <div
+            class="alert-detail-status-badge"
+            id="detailStatusBadge"
+          >
+            ACTIVE
+          </div>
+
+        </div>
+
+
+        <p id="detailStatusMessage">
+          This alert is active for the work zone.
+        </p>
+
+      </section>
+
+
+      <!-- =========================================
+           WORK ZONE CONTEXT
+           ========================================= -->
+
+      <section class="alert-detail-section">
+
+        <p class="alert-detail-section-label">
+          WORK ZONE
+        </p>
+
+
+        <div class="alert-detail-grid">
+
+          <div class="alert-detail-item">
+
+            <span>
+              PROJECT
+            </span>
+
+            <strong id="detailProject">
+              24-117
+            </strong>
+
+          </div>
+
+
+          <div class="alert-detail-item">
+
+            <span>
+              WORK ZONE
+            </span>
+
+            <strong id="detailWorkZone">
+              I-70 Eastbound
+            </strong>
+
+          </div>
+
+
+          <div class="alert-detail-item">
+
+            <span>
+              CREW
+            </span>
+
+            <strong id="detailCrew">
+              Crew A
+            </strong>
+
+          </div>
+
+
+          <div class="alert-detail-item">
+
+            <span>
+              REPORTED
+            </span>
+
+            <strong id="detailTime">
+              Just now
+            </strong>
+
+          </div>
+
+
+          <div class="alert-detail-item">
+
+            <span>
+              LOCATION
+            </span>
+
+            <strong id="detailLocation">
+              Work-zone GPS
+            </strong>
+
+          </div>
+
+
+          <div class="alert-detail-item">
+
+            <span>
+              REPORT ID
+            </span>
+
+            <strong id="detailReportId">
+              JORDAN
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           REPORTER NOTE
+           ========================================= -->
+
+      <section
+        class="alert-detail-section"
+        id="detailNoteSection"
+      >
+
+        <p class="alert-detail-section-label">
+          REPORTER NOTE
+        </p>
+
+
+        <div class="alert-detail-note-card">
+
+          <p id="detailNote">
+            No additional details were provided.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           PHOTO
+           ========================================= -->
+
+      <section
+        class="alert-detail-section"
+        id="detailPhotoSection"
+      >
+
+        <p class="alert-detail-section-label">
+          ATTACHMENT
+        </p>
+
+
+        <div class="alert-detail-photo-card">
+
+          <div
+            class="alert-detail-photo-icon"
+            id="detailPhotoIcon"
+          >
+            ✓
+          </div>
+
+
+          <div>
+
+            <strong id="detailPhotoTitle">
+              Photo attached
+            </strong>
+
+            <p id="detailPhotoText">
+              Reporter included an image with this report.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           ALERT ACKNOWLEDGEMENT
+           ========================================= -->
+
+      <section class="alert-detail-section">
+
+        <p class="alert-detail-section-label">
+          YOUR RESPONSE
+        </p>
+
+
+        <div
+          class="alert-detail-ack-card"
+          id="detailAckCard"
+        >
+
+          <div
+            class="alert-detail-ack-icon"
+            id="detailAckIcon"
+          >
+            !
+          </div>
+
+
+          <div>
+
+            <strong id="detailAckTitle">
+              Alert not acknowledged
+            </strong>
+
+            <p id="detailAckText">
+              Return to the alert and acknowledge it so your crew knows you received the warning.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           ACTIONS
+           ========================================= -->
+
+      <section class="alert-detail-actions">
+
+        <button
+          class="alert-detail-primary-button"
+          id="returnToAlertButton"
+          type="button"
+        >
+          Return to Crew Alert
+        </button>
+
+
+        <a
+          class="alert-detail-secondary-button"
+          href="index.html"
+        >
+          Return to Work Zone
+        </a>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    const savedReport =
+      JSON.parse(
+        sessionStorage.getItem(
+          "jordanPrototypeReport"
+        ) || "{}"
+      );
+
+
+    const acknowledged =
+      sessionStorage.getItem(
+        "jordanPrototypeAlertAcknowledged"
+      ) === "true";
+
+
+    const detailHazard =
+      document.querySelector(
+        "#detailHazard"
+      );
+
+    const detailStatusBadge =
+      document.querySelector(
+        "#detailStatusBadge"
+      );
+
+    const detailStatusMessage =
+      document.querySelector(
+        "#detailStatusMessage"
+      );
+
+    const detailProject =
+      document.querySelector(
+        "#detailProject"
+      );
+
+    const detailWorkZone =
+      document.querySelector(
+        "#detailWorkZone"
+      );
+
+    const detailCrew =
+      document.querySelector(
+        "#detailCrew"
+      );
+
+    const detailTime =
+      document.querySelector(
+        "#detailTime"
+      );
+
+    const detailLocation =
+      document.querySelector(
+        "#detailLocation"
+      );
+
+    const detailReportId =
+      document.querySelector(
+        "#detailReportId"
+      );
+
+    const detailNote =
+      document.querySelector(
+        "#detailNote"
+      );
+
+    const detailNoteSection =
+      document.querySelector(
+        "#detailNoteSection"
+      );
+
+    const detailPhotoSection =
+      document.querySelector(
+        "#detailPhotoSection"
+      );
+
+    const detailAckCard =
+      document.querySelector(
+        "#detailAckCard"
+      );
+
+    const detailAckIcon =
+      document.querySelector(
+        "#detailAckIcon"
+      );
+
+    const detailAckTitle =
+      document.querySelector(
+        "#detailAckTitle"
+      );
+
+    const detailAckText =
+      document.querySelector(
+        "#detailAckText"
+      );
+
+    const alertDetailsBackButton =
+      document.querySelector(
+        "#alertDetailsBackButton"
+      );
+
+    const returnToAlertButton =
+      document.querySelector(
+        "#returnToAlertButton"
+      );
+
+    const detailsAlertPill =
+      document.querySelector(
+        "#detailsAlertPill"
+      );
+
+
+    detailHazard.textContent =
+      savedReport.hazard ||
+      "Safety Hazard";
+
+
+    detailProject.textContent =
+      savedReport.project ||
+      "24-117";
+
+
+    detailWorkZone.textContent =
+      savedReport.workZone ||
+      "I-70 Eastbound";
+
+
+    detailCrew.textContent =
+      savedReport.crew ||
+      "Crew A";
+
+
+    detailLocation.textContent =
+      savedReport.location ||
+      "Work-zone GPS";
+
+
+    detailReportId.textContent =
+      savedReport.id ||
+      "JORDAN Prototype";
+
+
+    if (savedReport.timestamp) {
+
+      const reportDate =
+        new Date(
+          savedReport.timestamp
+        );
+
+      detailTime.textContent =
+        new Intl.DateTimeFormat(
+          "en-US",
+          {
+            hour: "numeric",
+            minute: "2-digit"
+          }
+        ).format(reportDate);
+
+    }
+
+
+    if (savedReport.note) {
+
+      detailNote.textContent =
+        savedReport.note;
+
+    } else {
+
+      detailNoteSection.style.display =
+        "none";
+
+    }
+
+
+    if (!savedReport.photoAttached) {
+
+      detailPhotoSection.style.display =
+        "none";
+
+    }
+
+
+    if (
+      savedReport.urgency ===
+      "document"
+    ) {
+
+      detailStatusBadge.textContent =
+        "DOCUMENTED";
+
+      detailStatusBadge.classList.add(
+        "documented"
+      );
+
+      detailStatusMessage.textContent =
+        "This report was documented without sending a live crew alert.";
+
+      detailsAlertPill.style.display =
+        "none";
+
+    }
+
+
+    if (acknowledged) {
+
+      detailAckCard.classList.add(
+        "acknowledged"
+      );
+
+      detailAckIcon.textContent =
+        "✓";
+
+      detailAckTitle.textContent =
+        "Alert acknowledged";
+
+      detailAckText.textContent =
+        "You confirmed that you received this safety warning.";
+
+    }
+
+
+    function returnToAlert() {
+
+      window.location.href =
+        "crew-alert.html";
+
+    }
+
+
+    if (alertDetailsBackButton) {
+
+      alertDetailsBackButton.addEventListener(
+        "click",
+        returnToAlert
+      );
+
+    }
+
+
+    if (returnToAlertButton) {
+
+      returnToAlertButton.addEventListener(
+        "click",
+        returnToAlert
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>

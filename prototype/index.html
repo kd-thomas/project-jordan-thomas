@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>JORDAN Prototype</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- =========================================
+         APP HEADER
+         ========================================= -->
+
+    <header class="app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="profile-button"
+        type="button"
+        aria-label="Open worker profile"
+      >
+        KT
+      </button>
+
+    </header>
+
+
+    <!-- =========================================
+         HOME SCREEN
+         ========================================= -->
+
+    <main
+      class="app-main app-screen"
+      id="homeScreen"
+    >
+
+      <!-- ACTIVE WORK ZONE -->
+
+      <section class="zone-status-card">
+
+        <div class="zone-status-top">
+
+          <div>
+
+            <p class="section-label">
+              ACTIVE WORK ZONE
+            </p>
+
+            <h1>
+              I-70 Eastbound
+            </h1>
+
+            <p class="zone-meta">
+              Project 24-117 · Crew A
+            </p>
+
+          </div>
+
+
+          <div class="live-status">
+
+            <span class="live-dot"></span>
+
+            ACTIVE
+
+          </div>
+
+        </div>
+
+
+        <div class="zone-details">
+
+          <div class="zone-detail">
+
+            <span class="detail-label">
+              SHIFT
+            </span>
+
+            <strong>
+              6:00 AM–4:30 PM
+            </strong>
+
+          </div>
+
+
+          <div class="zone-detail">
+
+            <span class="detail-label">
+              CREW
+            </span>
+
+            <strong>
+              6 workers
+            </strong>
+
+          </div>
+
+
+          <div class="zone-detail">
+
+            <span class="detail-label">
+              LOCATION
+            </span>
+
+            <strong>
+              Columbus, OH
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           REPORT HAZARD
+           ========================================= -->
+
+      <section class="report-section">
+
+        <p class="report-prompt">
+          See something dangerous?
+        </p>
+
+
+        <button
+          class="report-hazard-button"
+          type="button"
+          id="reportHazardButton"
+        >
+
+          <span class="report-icon">
+            !
+          </span>
+
+          <span>
+
+            <strong>
+              REPORT HAZARD
+            </strong>
+
+            <small>
+              Alert your crew in seconds
+            </small>
+
+          </span>
+
+        </button>
+
+      </section>
+
+
+      <!-- =========================================
+           ACTIVE ALERTS
+           ========================================= -->
+
+      <section class="content-section">
+
+        <div class="section-heading-row">
+
+          <div>
+
+            <p class="section-label">
+              CREW SAFETY
+            </p>
+
+            <h2>
+              Active Alerts
+            </h2>
+
+          </div>
+
+
+          <span
+            class="alert-count"
+            id="workerActiveAlertCount"
+          >
+            0
+          </span>
+
+        </div>
+
+
+        <div
+          class="empty-state"
+          id="workerNoActiveAlerts"
+        >
+
+          <div class="safe-icon">
+            ✓
+          </div>
+
+          <strong>
+            No active alerts
+          </strong>
+
+          <p>
+            Your crew has no unresolved safety alerts right now.
+          </p>
+
+        </div>
+
+
+        <article
+          class="activity-card"
+          id="workerActiveAlertCard"
+          style="display: none;"
+        >
+
+          <div class="activity-marker monitoring">
+            !
+          </div>
+
+
+          <div class="activity-copy">
+
+            <div class="activity-heading">
+
+              <strong id="workerActiveAlertHazard">
+                Safety Alert
+              </strong>
+
+              <span id="workerActiveAlertTime">
+                Just now
+              </span>
+
+            </div>
+
+
+            <p id="workerActiveAlertDescription">
+              A live crew safety alert is active.
+            </p>
+
+
+            <span
+              class="status-pill monitoring-pill"
+              id="workerActiveAlertStatus"
+            >
+              ACTIVE
+            </span>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================================
+           RECENT ACTIVITY
+           ========================================= -->
+
+      <section class="content-section">
+
+        <div class="section-heading-row">
+
+          <div>
+
+            <p class="section-label">
+              TODAY
+            </p>
+
+            <h2>
+              Recent Activity
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <article
+          class="activity-card"
+          id="latestReportActivity"
+          style="display: none;"
+        >
+
+          <div
+            class="activity-marker"
+            id="latestReportActivityMarker"
+          >
+            !
+          </div>
+
+
+          <div class="activity-copy">
+
+            <div class="activity-heading">
+
+              <strong id="latestReportHazard">
+                Safety Report
+              </strong>
+
+              <span id="latestReportTime">
+                Just now
+              </span>
+
+            </div>
+
+
+            <p id="latestReportDescription">
+              Safety report submitted.
+            </p>
+
+
+            <span
+              class="status-pill"
+              id="latestReportStatus"
+            >
+              ACTIVE
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-card">
+
+          <div class="activity-marker resolved">
+            ✓
+          </div>
+
+          <div class="activity-copy">
+
+            <div class="activity-heading">
+
+              <strong>
+                Unsafe shoulder condition
+              </strong>
+
+              <span>
+                8:42 AM
+              </span>
+
+            </div>
+
+            <p>
+              Loose material identified near the eastbound taper.
+            </p>
+
+            <span class="status-pill resolved-pill">
+              RESOLVED
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <article class="activity-card">
+
+          <div class="activity-marker monitoring">
+            !
+          </div>
+
+          <div class="activity-copy">
+
+            <div class="activity-heading">
+
+              <strong>
+                Speed concern
+              </strong>
+
+              <span>
+                7:18 AM
+              </span>
+
+            </div>
+
+            <p>
+              Multiple vehicles observed entering the work zone above the posted speed.
+            </p>
+
+            <span class="status-pill monitoring-pill">
+              MONITORING
+            </span>
+
+          </div>
+
+        </article>
+
+      </section>
+
+    </main>
+
+
+    <!-- =========================================
+         HAZARD CATEGORY SCREEN
+         ========================================= -->
+
+    <main
+      class="app-main app-screen"
+      id="hazardScreen"
+      hidden
+    >
+
+      <section class="report-flow-header">
+
+        <button
+          class="back-button"
+          id="hazardBackButton"
+          type="button"
+          aria-label="Go back"
+        >
+          ←
+        </button>
+
+
+        <div>
+
+          <p class="section-label">
+            NEW REPORT
+          </p>
+
+          <h1>
+            What’s happening?
+          </h1>
+
+        </div>
+
+      </section>
+
+
+      <div class="safety-reminder">
+
+        <div class="safety-reminder-icon">
+          !
+        </div>
+
+
+        <div>
+
+          <strong>
+            Your safety comes first.
+          </strong>
+
+          <p>
+            If you are in immediate danger, move to a safe location before using JORDAN.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <section class="report-context-card">
+
+        <span>
+          REPORTING FROM
+        </span>
+
+        <strong>
+          I-70 Eastbound · Crew A
+        </strong>
+
+        <small>
+          Time, project and work-zone context will be attached automatically.
+        </small>
+
+      </section>
+
+
+      <section class="hazard-selection">
+
+        <p class="hazard-instruction">
+          Choose the option that best describes what you saw.
+        </p>
+
+
+        <div class="hazard-grid">
+
+          <button
+            class="hazard-option hazard-option-critical"
+            type="button"
+            data-category="Vehicle Intrusion"
+          >
+
+            <span class="hazard-symbol">
+              ↗
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Vehicle Intrusion
+              </strong>
+
+              <small>
+                Vehicle entered or crossed into the protected work area
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option"
+            type="button"
+            data-category="Dangerous Driver"
+          >
+
+            <span class="hazard-symbol">
+              !
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Dangerous Driver
+              </strong>
+
+              <small>
+                Speeding, distracted, aggressive or unsafe driving
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option"
+            type="button"
+            data-category="Near Miss"
+          >
+
+            <span class="hazard-symbol">
+              ≈
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Near Miss
+              </strong>
+
+              <small>
+                Someone was nearly struck, injured or involved in a crash
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option hazard-option-critical"
+            type="button"
+            data-category="Crash"
+          >
+
+            <span class="hazard-symbol">
+              ×
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Crash
+              </strong>
+
+              <small>
+                Vehicle collision in or affecting the work zone
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option hazard-option-critical"
+            type="button"
+            data-category="Worker Injury"
+          >
+
+            <span class="hazard-symbol">
+              +
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Worker Injury
+              </strong>
+
+              <small>
+                A worker has been hurt or needs medical attention
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option"
+            type="button"
+            data-category="Unsafe Condition"
+          >
+
+            <span class="hazard-symbol">
+              △
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Unsafe Condition
+              </strong>
+
+              <small>
+                Equipment, debris, traffic control or site condition
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="hazard-option hazard-option-wide"
+            type="button"
+            data-category="Other"
+          >
+
+            <span class="hazard-symbol">
+              •••
+            </span>
+
+            <span class="hazard-option-copy">
+
+              <strong>
+                Other
+              </strong>
+
+              <small>
+                Something dangerous that does not fit the options above
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <div
+        class="selected-hazard-bar"
+        id="selectedHazardBar"
+        hidden
+      >
+
+        <div>
+
+          <span>
+            SELECTED
+          </span>
+
+          <strong id="selectedHazardText">
+            Hazard
+          </strong>
+
+        </div>
+
+
+        <button
+          class="continue-button"
+          id="continueReportButton"
+          type="button"
+        >
+          Continue →
+        </button>
+
+      </div>
+
+    </main>
+
+
+    <!-- =========================================
+         REPORT DETAILS SCREEN
+         ========================================= -->
+
+    <main
+      class="app-main app-screen"
+      id="detailsScreen"
+      hidden
+    >
+
+      <section class="report-flow-header">
+
+        <button
+          class="back-button"
+          id="detailsBackButton"
+          type="button"
+          aria-label="Go back"
+        >
+          ←
+        </button>
+
+
+        <div>
+
+          <p class="section-label">
+            NEW REPORT
+          </p>
+
+          <h1>
+            Add the details.
+          </h1>
+
+        </div>
+
+      </section>
+
+
+      <section class="known-context-card">
+
+        <div class="known-context-heading">
+
+          <div>
+
+            <span class="context-kicker">
+              JORDAN ALREADY KNOWS
+            </span>
+
+            <strong>
+              We’ll attach this automatically.
+            </strong>
+
+          </div>
+
+
+          <span class="auto-badge">
+            AUTO
+          </span>
+
+        </div>
+
+
+        <div class="known-context-grid">
+
+          <div class="known-context-item">
+
+            <span>
+              HAZARD
+            </span>
+
+            <strong id="detailsHazardText">
+              Hazard
+            </strong>
+
+          </div>
+
+
+          <div class="known-context-item">
+
+            <span>
+              PROJECT
+            </span>
+
+            <strong>
+              24-117
+            </strong>
+
+          </div>
+
+
+          <div class="known-context-item">
+
+            <span>
+              WORK ZONE
+            </span>
+
+            <strong>
+              I-70 Eastbound
+            </strong>
+
+          </div>
+
+
+          <div class="known-context-item">
+
+            <span>
+              CREW
+            </span>
+
+            <strong>
+              Crew A
+            </strong>
+
+          </div>
+
+
+          <div class="known-context-item">
+
+            <span>
+              TIME
+            </span>
+
+            <strong id="reportTimeText">
+              Now
+            </strong>
+
+          </div>
+
+
+          <div class="known-context-item">
+
+            <span>
+              LOCATION
+            </span>
+
+            <strong>
+              Work-zone GPS
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="detail-section">
+
+        <div class="detail-section-heading">
+
+          <span class="detail-step">
+            1
+          </span>
+
+          <div>
+
+            <h2>
+              Is this happening right now?
+            </h2>
+
+            <p>
+              This determines whether your crew should be alerted immediately.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="urgency-options">
+
+          <button
+            class="urgency-option urgency-option-alert"
+            type="button"
+            data-urgency="active"
+          >
+
+            <span class="urgency-icon">
+              !
+            </span>
+
+            <span>
+
+              <strong>
+                Yes, it’s happening now
+              </strong>
+
+              <small>
+                Alert my crew immediately
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="urgency-option"
+            type="button"
+            data-urgency="document"
+          >
+
+            <span class="urgency-icon">
+              ✓
+            </span>
+
+            <span>
+
+              <strong>
+                No, document it
+              </strong>
+
+              <small>
+                Save the report without a live crew alert
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <section class="detail-section">
+
+        <div class="detail-section-heading">
+
+          <span class="detail-step">
+            2
+          </span>
+
+          <div>
+
+            <h2>
+              Anything else we should know?
+            </h2>
+
+            <p>
+              Optional. Keep it short.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="note-field">
+
+          <textarea
+            id="reportNote"
+            maxlength="180"
+            rows="4"
+            placeholder="Example: White pickup crossed the barrels near the east taper."
+          ></textarea>
+
+
+          <div class="note-field-footer">
+
+            <span>
+              Optional
+            </span>
+
+            <span id="noteCount">
+              0 / 180
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="detail-section">
+
+        <div class="detail-section-heading">
+
+          <span class="detail-step">
+            3
+          </span>
+
+          <div>
+
+            <h2>
+              Add a photo?
+            </h2>
+
+            <p>
+              Optional. Only take a photo if it is safe to do so.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="photo-button"
+          type="button"
+          id="photoButton"
+        >
+
+          <span class="photo-icon">
+            +
+          </span>
+
+          <span>
+
+            <strong>
+              Add Photo
+            </strong>
+
+            <small id="photoStatusText">
+              No photo attached
+            </small>
+
+          </span>
+
+        </button>
+
+      </section>
+
+
+      <section class="submit-report-section">
+
+        <div
+          class="submit-helper"
+          id="submitHelper"
+        >
+          Choose whether this is happening now before sending the report.
+        </div>
+
+
+        <button
+          class="submit-report-button"
+          id="submitReportButton"
+          type="button"
+          disabled
+        >
+
+          <span class="submit-report-icon">
+            →
+          </span>
+
+          <span>
+
+            <strong id="submitButtonText">
+              SEND SAFETY REPORT
+            </strong>
+
+            <small id="submitButtonSubtext">
+              Report will be saved to this work zone
+            </small>
+
+          </span>
+
+        </button>
+
+      </section>
+
+    </main>
+
+
+    <!-- =========================================
+         BOTTOM NAVIGATION
+         ========================================= -->
+
+    <nav
+      class="bottom-nav"
+      id="bottomNav"
+    >
+
+      <a
+        class="bottom-nav-item active"
+        href="index.html"
+      >
+
+        <span class="nav-icon">
+          ◉
+        </span>
+
+        <span>
+          Home
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item"
+        href="reports.html"
+      >
+
+        <span class="nav-icon">
+          !
+        </span>
+
+        <span>
+          Reports
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item"
+        href="crew.html"
+      >
+
+        <span class="nav-icon">
+          ⦿
+        </span>
+
+        <span>
+          Crew
+        </span>
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <script src="prototype.js"></script>
+
+</body>
+
+</html>

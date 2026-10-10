@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Crew | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+
+  <style>
+
+    .crew-page {
+      min-height: calc(100vh - 150px);
+      padding-bottom: 120px;
+    }
+
+
+    .crew-page-header {
+      padding: 28px 20px 8px;
+    }
+
+
+    .crew-page-header .section-label {
+      margin-bottom: 8px;
+    }
+
+
+    .crew-page-header h1 {
+      margin: 0;
+      color: #061c3e;
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+
+    .crew-page-header p:last-child {
+      margin: 10px 0 0;
+      color: #8193a8;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+
+    .crew-zone-card {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background:
+        linear-gradient(
+          145deg,
+          #071f46 0%,
+          #0a3a76 100%
+        );
+      color: #ffffff;
+    }
+
+
+    .crew-zone-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+
+    .crew-zone-card .section-label {
+      color: #72b6ff;
+    }
+
+
+    .crew-zone-card h2 {
+      margin: 4px 0 4px;
+      color: #ffffff;
+      font-size: 1.75rem;
+      line-height: 1.08;
+    }
+
+
+    .crew-zone-card p {
+      margin: 0;
+      color: #bdcee1;
+    }
+
+
+    .crew-zone-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(95, 230, 154, 0.35);
+      border-radius: 999px;
+      background: rgba(42, 177, 100, 0.12);
+      color: #9ef0bb;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+
+    .crew-zone-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #42db83;
+      box-shadow:
+        0 0 0 5px rgba(66, 219, 131, 0.12);
+    }
+
+
+    .crew-zone-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+
+    .crew-zone-detail {
+      padding: 13px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+
+    .crew-zone-detail span {
+      display: block;
+      margin-bottom: 5px;
+      color: #8fb1d6;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    .crew-zone-detail strong {
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+
+    .crew-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 0 20px 20px;
+    }
+
+
+    .crew-summary-card {
+      padding: 16px;
+      border: 1px solid #d7e1ec;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+
+    .crew-summary-card span {
+      display: block;
+      margin-bottom: 7px;
+      color: #8193a8;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+
+    .crew-summary-card strong {
+      display: block;
+      color: #061c3e;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+
+    .crew-list-section {
+      padding: 4px 20px 28px;
+    }
+
+
+    .crew-list-heading {
+      margin-bottom: 14px;
+    }
+
+
+    .crew-list-heading h2 {
+      margin: 4px 0 0;
+      color: #061c3e;
+      font-size: 1.45rem;
+    }
+
+
+    .crew-list {
+      overflow: hidden;
+      border: 1px solid #d7e1ec;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+
+    .crew-member {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 13px;
+      align-items: center;
+      padding: 15px 16px;
+      border-bottom: 1px solid #e2e9f1;
+    }
+
+
+    .crew-member:last-child {
+      border-bottom: none;
+    }
+
+
+    .crew-avatar {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      background: #edf5ff;
+      color: #274d78;
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+
+    .crew-member-copy strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #061c3e;
+      font-size: 0.95rem;
+    }
+
+
+    .crew-member-copy span {
+      color: #8193a8;
+      font-size: 0.78rem;
+    }
+
+
+    .crew-member-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+
+    .crew-member-status.acknowledged {
+      color: #25764d;
+      background: #e6f7ee;
+    }
+
+
+    .crew-member-status.pending {
+      color: #a76b08;
+      background: #fff3cf;
+    }
+
+
+    .crew-member-status.not-needed {
+      color: #6f8194;
+      background: #edf2f7;
+    }
+
+
+    .crew-info-card {
+      margin: 0 20px 26px;
+      padding: 18px;
+      border: 1px solid #d7e1ec;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+
+    .crew-info-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #061c3e;
+      font-size: 0.95rem;
+    }
+
+
+    .crew-info-card p {
+      margin: 0;
+      color: #8193a8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+
+    @media (max-width: 540px) {
+
+      .crew-zone-top {
+        display: grid;
+      }
+
+
+      .crew-zone-live {
+        justify-self: start;
+      }
+
+
+      .crew-zone-details {
+        grid-template-columns: 1fr;
+      }
+
+
+      .crew-summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .crew-member {
+        grid-template-columns: auto 1fr;
+      }
+
+
+      .crew-member-status {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="profile-button"
+        type="button"
+        aria-label="Worker profile"
+      >
+        KT
+      </button>
+
+    </header>
+
+
+    <!-- =========================================
+         CREW PAGE
+         ========================================= -->
+
+    <main class="app-main crew-page">
+
+      <section class="crew-page-header">
+
+        <p class="section-label">
+          ACTIVE CREW
+        </p>
+
+        <h1>
+          Crew
+        </h1>
+
+        <p>
+          See who is assigned to your work zone and whether they have received the current safety alert.
+        </p>
+
+      </section>
+
+
+      <!-- =========================================
+           WORK ZONE
+           ========================================= -->
+
+      <section class="crew-zone-card">
+
+        <div class="crew-zone-top">
+
+          <div>
+
+            <p class="section-label">
+              ACTIVE WORK ZONE
+            </p>
+
+            <h2>
+              I-70 Eastbound
+            </h2>
+
+            <p>
+              Project 24-117 · Crew A
+            </p>
+
+          </div>
+
+
+          <div class="crew-zone-live">
+
+            <span class="crew-zone-live-dot"></span>
+
+            ACTIVE
+
+          </div>
+
+        </div>
+
+
+        <div class="crew-zone-details">
+
+          <div class="crew-zone-detail">
+
+            <span>
+              Shift
+            </span>
+
+            <strong>
+              6:00 AM–4:30 PM
+            </strong>
+
+          </div>
+
+
+          <div class="crew-zone-detail">
+
+            <span>
+              Crew
+            </span>
+
+            <strong>
+              6 workers
+            </strong>
+
+          </div>
+
+
+          <div class="crew-zone-detail">
+
+            <span>
+              Location
+            </span>
+
+            <strong>
+              Columbus, OH
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           CREW SUMMARY
+           ========================================= -->
+
+      <section class="crew-summary-grid">
+
+        <article class="crew-summary-card">
+
+          <span>
+            On Shift
+          </span>
+
+          <strong>
+            6
+          </strong>
+
+        </article>
+
+
+        <article class="crew-summary-card">
+
+          <span>
+            Acknowledged
+          </span>
+
+          <strong id="crewAcknowledgedCount">
+            0
+          </strong>
+
+        </article>
+
+
+        <article class="crew-summary-card">
+
+          <span>
+            Pending
+          </span>
+
+          <strong id="crewPendingCount">
+            0
+          </strong>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================================
+           CREW LIST
+           ========================================= -->
+
+      <section class="crew-list-section">
+
+        <div class="crew-list-heading">
+
+          <p class="section-label">
+            CREW A
+          </p>
+
+          <h2>
+            Crew Status
+          </h2>
+
+        </div>
+
+
+        <div
+          class="crew-list"
+          id="crewList"
+        >
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              KT
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Kay Thomas
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="kay"
+            >
+              Pending
+            </span>
+
+          </div>
+
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              AJ
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Andre Johnson
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="andre"
+            >
+              Pending
+            </span>
+
+          </div>
+
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              MS
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Marcus Smith
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="marcus"
+            >
+              Pending
+            </span>
+
+          </div>
+
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              TR
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Tiana Reed
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="tiana"
+            >
+              Pending
+            </span>
+
+          </div>
+
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              DB
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Devin Brooks
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="devin"
+            >
+              Pending
+            </span>
+
+          </div>
+
+
+          <div class="crew-member">
+
+            <div class="crew-avatar">
+              RP
+            </div>
+
+            <div class="crew-member-copy">
+
+              <strong>
+                Rosa Perez
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span
+              class="crew-member-status pending"
+              data-worker-status="rosa"
+            >
+              Pending
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           INFO
+           ========================================= -->
+
+      <section class="crew-info-card">
+
+        <strong>
+          About crew acknowledgment
+        </strong>
+
+        <p>
+          Acknowledgment only shows whether a worker has confirmed receipt of the current live safety alert. It does not indicate whether a worker is safe, available, or currently using JORDAN.
+        </p>
+
+      </section>
+
+    </main>
+
+
+    <!-- =========================================
+         BOTTOM NAV
+         ========================================= -->
+
+    <nav class="bottom-nav">
+
+      <a
+        class="bottom-nav-item"
+        href="index.html"
+      >
+
+        <span class="nav-icon">
+          ◉
+        </span>
+
+        <span>
+          Home
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item"
+        href="reports.html"
+      >
+
+        <span class="nav-icon">
+          !
+        </span>
+
+        <span>
+          Reports
+        </span>
+
+      </a>
+
+
+      <a
+        class="bottom-nav-item active"
+        href="crew.html"
+      >
+
+        <span class="nav-icon">
+          ⦿
+        </span>
+
+        <span>
+          Crew
+        </span>
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================
+       JORDAN WORKER CREW VIEW
+       ========================================= */
+
+
+    function getReport() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "jordanPrototypeReport"
+          ) || "{}"
+        );
+
+      } catch {
+
+        return {};
+
+      }
+
+    }
+
+
+    const report =
+      getReport();
+
+
+    const workerStatuses =
+      document.querySelectorAll(
+        "[data-worker-status]"
+      );
+
+
+    const crewAcknowledgedCount =
+      document.querySelector(
+        "#crewAcknowledgedCount"
+      );
+
+
+    const crewPendingCount =
+      document.querySelector(
+        "#crewPendingCount"
+      );
+
+
+    const totalCrew =
+      6;
+
+
+    /*
+     * Only real prototype actions count.
+     *
+     * No alert / no acknowledgment:
+     * 0 acknowledged
+     *
+     * Kay acknowledges:
+     * 1 acknowledged
+     *
+     * Foreman marks entire crew briefed:
+     * 6 acknowledged
+     */
+
+
+    let acknowledgedCount =
+      0;
+
+
+    if (
+      report.crewBriefed === true
+    ) {
+
+      acknowledgedCount =
+        6;
+
+    } else if (
+      report.acknowledged === true
+    ) {
+
+      acknowledgedCount =
+        1;
+
+    }
+
+
+    const hasLiveAlert =
+      Boolean(report.id) &&
+      report.urgency === "active" &&
+      report.resolved !== true &&
+      report.status !== "Resolved";
+
+
+    /*
+     * If there is no current live alert,
+     * acknowledgment is not an active task.
+     */
+
+    if (!hasLiveAlert) {
+
+      acknowledgedCount =
+        0;
+
+    }
+
+
+    function renderCrewStatus() {
+
+      let pendingCount =
+        0;
+
+
+      workerStatuses.forEach(
+        (status, index) => {
+
+          if (!hasLiveAlert) {
+
+            status.textContent =
+              "No Active Alert";
+
+
+            status.classList.remove(
+              "acknowledged",
+              "pending"
+            );
+
+
+            status.classList.add(
+              "not-needed"
+            );
+
+
+            return;
+
+          }
+
+
+          let acknowledged =
+            false;
+
+
+          if (
+            report.crewBriefed === true
+          ) {
+
+            acknowledged =
+              true;
+
+          } else if (
+            report.acknowledged === true &&
+            index === 0
+          ) {
+
+            acknowledged =
+              true;
+
+          }
+
+
+          if (acknowledged) {
+
+            status.textContent =
+              "Acknowledged";
+
+
+            status.classList.remove(
+              "pending",
+              "not-needed"
+            );
+
+
+            status.classList.add(
+              "acknowledged"
+            );
+
+          } else {
+
+            pendingCount +=
+              1;
+
+
+            status.textContent =
+              "Pending";
+
+
+            status.classList.remove(
+              "acknowledged",
+              "not-needed"
+            );
+
+
+            status.classList.add(
+              "pending"
+            );
+
+          }
+
+        }
+      );
+
+
+      if (hasLiveAlert) {
+
+        crewAcknowledgedCount.textContent =
+          acknowledgedCount;
+
+
+        crewPendingCount.textContent =
+          pendingCount;
+
+      } else {
+
+        crewAcknowledgedCount.textContent =
+          "—";
+
+
+        crewPendingCount.textContent =
+          "—";
+
+      }
+
+    }
+
+
+    renderCrewStatus();
+
+  </script>
+
+</body>
+
+</html>

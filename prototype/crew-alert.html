@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#b94700"
+  />
+
+  <title>Crew Safety Alert | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="app-shell alert-app-shell">
+
+    <header class="app-header alert-app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <span class="incoming-alert-pill">
+
+        <span class="incoming-alert-dot"></span>
+
+        LIVE ALERT
+
+      </span>
+
+    </header>
+
+
+    <main class="app-main crew-alert-screen">
+
+      <section class="crew-alert-hero">
+
+        <div class="crew-alert-main-icon">
+          !
+        </div>
+
+
+        <p class="crew-alert-kicker">
+          ACTIVE SAFETY ALERT
+        </p>
+
+
+        <h1 id="crewAlertHazard">
+          Safety Hazard
+        </h1>
+
+
+        <p class="crew-alert-age">
+          Reported just now
+        </p>
+
+      </section>
+
+
+      <section class="crew-alert-location">
+
+        <span>
+          WORK ZONE
+        </span>
+
+        <strong id="crewWorkZone">
+          I-70 Eastbound
+        </strong>
+
+        <p id="crewProjectContext">
+          Project 24-117 · Crew A
+        </p>
+
+      </section>
+
+
+      <section class="crew-alert-message">
+
+        <p class="crew-alert-message-label">
+          SAFETY MESSAGE
+        </p>
+
+        <h2 id="crewAlertMessage">
+          A safety hazard has been reported near the active work zone.
+        </h2>
+
+      </section>
+
+
+      <section
+        class="crew-alert-note"
+        id="crewAlertNoteSection"
+      >
+
+        <span>
+          REPORTER NOTE
+        </span>
+
+        <p id="crewAlertNote">
+          No additional details were provided.
+        </p>
+
+      </section>
+
+
+      <section class="crew-alert-context">
+
+        <div>
+
+          <span>
+            REPORTED
+          </span>
+
+          <strong id="crewAlertTime">
+            Just now
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            STATUS
+          </span>
+
+          <strong class="active-alert-text">
+            Active
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            CREW
+          </span>
+
+          <strong id="crewName">
+            Crew A
+          </strong>
+
+        </div>
+
+      </section>
+
+
+      <section
+        class="crew-alert-actions"
+        id="crewAlertActions"
+      >
+
+        <button
+          class="acknowledge-alert-button"
+          id="acknowledgeAlertButton"
+          type="button"
+        >
+
+          <span class="acknowledge-icon">
+            ✓
+          </span>
+
+          <span>
+
+            <strong>
+              ACKNOWLEDGE ALERT
+            </strong>
+
+            <small>
+              Let your crew know you received this warning
+            </small>
+
+          </span>
+
+        </button>
+
+
+        <button
+          class="crew-alert-details-button"
+          id="crewAlertDetailsButton"
+          type="button"
+        >
+          View Report Details
+        </button>
+
+      </section>
+
+
+      <section
+        class="alert-acknowledged"
+        id="alertAcknowledged"
+        style="display: none;"
+      >
+
+        <div class="acknowledged-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <span>
+            ALERT ACKNOWLEDGED
+          </span>
+
+          <strong>
+            You confirmed that you received this warning.
+          </strong>
+
+          <p>
+            Stay aware of your surroundings while the alert remains active.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <a
+        href="index.html"
+        class="return-workzone-link"
+      >
+        Return to Work Zone
+      </a>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    function getReport() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "jordanPrototypeReport"
+          ) || "{}"
+        );
+
+      } catch {
+
+        return {};
+
+      }
+
+    }
+
+
+    function saveReport(report) {
+
+      const value =
+        JSON.stringify(report);
+
+      localStorage.setItem(
+        "jordanPrototypeReport",
+        value
+      );
+
+      sessionStorage.setItem(
+        "jordanPrototypeReport",
+        value
+      );
+
+    }
+
+
+    let report =
+      getReport();
+
+
+    const crewAlertHazard =
+      document.querySelector(
+        "#crewAlertHazard"
+      );
+
+    const crewAlertMessage =
+      document.querySelector(
+        "#crewAlertMessage"
+      );
+
+    const crewAlertNote =
+      document.querySelector(
+        "#crewAlertNote"
+      );
+
+    const crewAlertNoteSection =
+      document.querySelector(
+        "#crewAlertNoteSection"
+      );
+
+    const crewAlertTime =
+      document.querySelector(
+        "#crewAlertTime"
+      );
+
+    const acknowledgeAlertButton =
+      document.querySelector(
+        "#acknowledgeAlertButton"
+      );
+
+    const crewAlertActions =
+      document.querySelector(
+        "#crewAlertActions"
+      );
+
+    const alertAcknowledged =
+      document.querySelector(
+        "#alertAcknowledged"
+      );
+
+    const crewAlertDetailsButton =
+      document.querySelector(
+        "#crewAlertDetailsButton"
+      );
+
+    const crewWorkZone =
+      document.querySelector(
+        "#crewWorkZone"
+      );
+
+    const crewProjectContext =
+      document.querySelector(
+        "#crewProjectContext"
+      );
+
+    const crewName =
+      document.querySelector(
+        "#crewName"
+      );
+
+
+    const hazard =
+      report.hazard ||
+      "Safety Hazard";
+
+
+    crewAlertHazard.textContent =
+      hazard;
+
+
+    crewWorkZone.textContent =
+      report.workZone ||
+      "I-70 Eastbound";
+
+
+    crewName.textContent =
+      report.crew ||
+      "Crew A";
+
+
+    crewProjectContext.textContent =
+      `Project ${
+        report.project ||
+        "24-117"
+      } · ${
+        report.crew ||
+        "Crew A"
+      }`;
+
+
+    const alertMessages = {
+
+      "Vehicle Intrusion":
+        "Move to a safe position. A vehicle has entered or crossed into the protected work area.",
+
+      "Dangerous Driver":
+        "Stay alert. A dangerous driver has been reported near the active work zone.",
+
+      "Near Miss":
+        "Use caution. A near miss involving a worker or vehicle has been reported.",
+
+      "Crash":
+        "Use extreme caution. A crash has been reported in or near the active work zone.",
+
+      "Worker Injury":
+        "A worker injury has been reported. Follow your site emergency and supervisor procedures.",
+
+      "Unsafe Condition":
+        "Use caution. An unsafe condition has been reported within the work zone.",
+
+      "Other":
+        "A safety hazard has been reported. Stay alert and follow crew instructions."
+
+    };
+
+
+    crewAlertMessage.textContent =
+      alertMessages[hazard] ||
+      alertMessages.Other;
+
+
+    if (report.note) {
+
+      crewAlertNote.textContent =
+        report.note;
+
+    } else {
+
+      crewAlertNoteSection.style.display =
+        "none";
+
+    }
+
+
+    if (report.timestamp) {
+
+      crewAlertTime.textContent =
+        new Intl.DateTimeFormat(
+          "en-US",
+          {
+            hour: "numeric",
+            minute: "2-digit"
+          }
+        ).format(
+          new Date(
+            report.timestamp
+          )
+        );
+
+    }
+
+
+    function renderAcknowledgement() {
+
+      if (
+        report.acknowledged === true
+      ) {
+
+        crewAlertActions.style.display =
+          "none";
+
+        alertAcknowledged.style.display =
+          "grid";
+
+      } else {
+
+        crewAlertActions.style.display =
+          "grid";
+
+        alertAcknowledged.style.display =
+          "none";
+
+      }
+
+    }
+
+
+    renderAcknowledgement();
+
+
+    acknowledgeAlertButton.addEventListener(
+      "click",
+      () => {
+
+        report =
+          getReport();
+
+
+        report.acknowledged =
+          true;
+
+
+        report.acknowledgedAt =
+          new Date().toISOString();
+
+
+        saveReport(
+          report
+        );
+
+
+        renderAcknowledgement();
+
+      }
+    );
+
+
+    crewAlertDetailsButton.addEventListener(
+      "click",
+      () => {
+
+        window.location.href =
+          "alert-details.html";
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>

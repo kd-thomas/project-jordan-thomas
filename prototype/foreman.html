@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Foreman Dashboard | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="foreman.css"
+  />
+
+</head>
+
+<body>
+
+  <div class="foreman-app">
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="foreman-header">
+
+      <div class="brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+        />
+
+        <div>
+
+          <strong>
+            JORDAN
+          </strong>
+
+          <span>
+            Foreman Console
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="header-user">
+
+        <div class="header-role">
+
+          <span>
+            ACTIVE ROLE
+          </span>
+
+          <strong>
+            Foreman
+          </strong>
+
+        </div>
+
+        <button
+          class="avatar-button"
+          type="button"
+          aria-label="Foreman profile"
+        >
+          MF
+        </button>
+
+      </div>
+
+    </header>
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main class="foreman-main">
+
+      <!-- =========================================
+           PAGE INTRO
+           ========================================= -->
+
+      <section class="page-intro">
+
+        <div>
+
+          <p class="eyebrow">
+            ACTIVE WORK ZONE
+          </p>
+
+          <h1>
+            I-70 Eastbound
+          </h1>
+
+          <p>
+            Project 24-117 · Crew A
+          </p>
+
+        </div>
+
+        <div class="zone-active-pill">
+
+          <span></span>
+
+          WORK ZONE ACTIVE
+
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           TOP METRICS
+           ========================================= -->
+
+      <section class="metric-grid">
+
+        <article class="metric-card">
+
+          <span class="metric-label">
+            CREW ON SHIFT
+          </span>
+
+          <strong>
+            6
+          </strong>
+
+          <p>
+            All assigned workers checked in
+          </p>
+
+        </article>
+
+        <article class="metric-card alert-card">
+
+          <span class="metric-label">
+            ACTIVE ALERTS
+          </span>
+
+          <strong id="activeAlertCount">
+            1
+          </strong>
+
+          <p id="activeAlertMetricText">
+            Requires supervisor attention
+          </p>
+
+        </article>
+
+        <article class="metric-card">
+
+          <span class="metric-label">
+            REPORTS TODAY
+          </span>
+
+          <strong id="reportsTodayCount">
+            3
+          </strong>
+
+          <p>
+            Across this active work zone
+          </p>
+
+        </article>
+
+        <article class="metric-card">
+
+          <span class="metric-label">
+            ACKNOWLEDGEMENT
+          </span>
+
+          <strong id="acknowledgementMetric">
+            4 / 6
+          </strong>
+
+          <p>
+            Crew members confirmed
+          </p>
+
+        </article>
+
+      </section>
+
+      <!-- =========================================
+           ACTIVE INCIDENT
+           ========================================= -->
+
+      <section
+        class="dashboard-section"
+        id="activeIncidentSection"
+      >
+
+        <div class="section-title-row">
+
+          <div>
+
+            <p class="eyebrow">
+              REQUIRES ATTENTION
+            </p>
+
+            <h2>
+              Active Incident
+            </h2>
+
+          </div>
+
+          <span class="live-incident-pill">
+
+            <span></span>
+
+            LIVE
+
+          </span>
+
+        </div>
+
+        <article class="incident-card">
+
+          <div class="incident-accent"></div>
+
+          <div class="incident-body">
+
+            <div class="incident-heading">
+
+              <div>
+
+                <span class="incident-type">
+                  SAFETY ALERT
+                </span>
+
+                <h3 id="incidentHazard">
+                  Dangerous Driver
+                </h3>
+
+              </div>
+
+              <span
+                class="incident-time"
+                id="incidentTime"
+              >
+                Just now
+              </span>
+
+            </div>
+
+            <p
+              class="incident-note"
+              id="incidentNote"
+            >
+              No additional reporter note.
+            </p>
+
+            <div class="incident-meta-grid">
+
+              <div>
+
+                <span>
+                  WORK ZONE
+                </span>
+
+                <strong id="incidentWorkZone">
+                  I-70 Eastbound
+                </strong>
+
+              </div>
+
+              <div>
+
+                <span>
+                  CREW
+                </span>
+
+                <strong id="incidentCrew">
+                  Crew A
+                </strong>
+
+              </div>
+
+              <div>
+
+                <span>
+                  STATUS
+                </span>
+
+                <strong class="status-active">
+                  Active
+                </strong>
+
+              </div>
+
+              <div>
+
+                <span>
+                  CREW RESPONSE
+                </span>
+
+                <strong id="incidentAckStatus">
+                  4 of 6 acknowledged
+                </strong>
+
+              </div>
+
+            </div>
+
+            <div class="ack-progress">
+
+              <div class="ack-progress-heading">
+
+                <span>
+                  CREW ACKNOWLEDGEMENT
+                </span>
+
+                <strong id="ackProgressLabel">
+                  67%
+                </strong>
+
+              </div>
+
+              <div class="ack-track">
+
+                <div
+                  class="ack-fill"
+                  id="ackFill"
+                ></div>
+
+              </div>
+
+            </div>
+
+            <div class="incident-actions">
+
+              <button
+                class="primary-action"
+                id="openIncidentButton"
+                type="button"
+              >
+                Open Incident
+              </button>
+
+              <button
+                class="secondary-action"
+                id="markCrewBriefedButton"
+                type="button"
+              >
+                Mark Crew Briefed
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+      <!-- =========================================
+           NO ACTIVE INCIDENT STATE
+           ========================================= -->
+
+      <section
+        class="no-active-incident"
+        id="noActiveIncident"
+        hidden
+      >
+
+        <div class="no-active-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <span>
+            NO ACTIVE INCIDENTS
+          </span>
+
+          <strong>
+            Crew A has no unresolved live safety alerts.
+          </strong>
+
+          <p>
+            New reports requiring immediate attention will appear here.
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           CREW STATUS
+           ========================================= -->
+
+      <section class="dashboard-section">
+
+        <div class="section-title-row">
+
+          <div>
+
+            <p class="eyebrow">
+              CREW A
+            </p>
+
+            <h2>
+              Crew Status
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="crew-list">
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              KT
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Kay Thomas
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status acknowledged">
+              Acknowledged
+            </span>
+
+          </article>
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              AJ
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Andre Johnson
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status acknowledged">
+              Acknowledged
+            </span>
+
+          </article>
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              MS
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Marcus Smith
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status acknowledged">
+              Acknowledged
+            </span>
+
+          </article>
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              TR
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Tiana Reed
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status acknowledged">
+              Acknowledged
+            </span>
+
+          </article>
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              DB
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Devin Brooks
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status pending">
+              Pending
+            </span>
+
+          </article>
+
+          <article class="crew-row">
+
+            <div class="crew-avatar">
+              RP
+            </div>
+
+            <div class="crew-person">
+
+              <strong>
+                Rosa Perez
+              </strong>
+
+              <span>
+                Worker
+              </span>
+
+            </div>
+
+            <span class="crew-status pending">
+              Pending
+            </span>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           TODAY'S REPORTS
+           ========================================= -->
+
+      <section class="dashboard-section">
+
+        <div class="section-title-row">
+
+          <div>
+
+            <p class="eyebrow">
+              TODAY
+            </p>
+
+            <h2>
+              Safety Reports
+            </h2>
+
+          </div>
+
+          <button
+            class="text-action"
+            type="button"
+          >
+            View All
+          </button>
+
+        </div>
+
+        <div class="report-list">
+
+          <article class="report-row active-report">
+
+            <div class="report-state-icon">
+              !
+            </div>
+
+            <div class="report-row-copy">
+
+              <div class="report-row-heading">
+
+                <strong id="reportListHazard">
+                  Dangerous Driver
+                </strong>
+
+                <span id="reportListTime">
+                  Just now
+                </span>
+
+              </div>
+
+              <p>
+                Active crew alert
+              </p>
+
+            </div>
+
+            <span class="report-status active">
+              ACTIVE
+            </span>
+
+          </article>
+
+          <article class="report-row">
+
+            <div class="report-state-icon monitoring">
+              !
+            </div>
+
+            <div class="report-row-copy">
+
+              <div class="report-row-heading">
+
+                <strong>
+                  Speed concern
+                </strong>
+
+                <span>
+                  7:18 AM
+                </span>
+
+              </div>
+
+              <p>
+                Multiple vehicles above posted speed
+              </p>
+
+            </div>
+
+            <span class="report-status monitoring">
+              MONITORING
+            </span>
+
+          </article>
+
+          <article class="report-row">
+
+            <div class="report-state-icon resolved">
+              ✓
+            </div>
+
+            <div class="report-row-copy">
+
+              <div class="report-row-heading">
+
+                <strong>
+                  Unsafe shoulder condition
+                </strong>
+
+                <span>
+                  8:42 AM
+                </span>
+
+              </div>
+
+              <p>
+                Loose material near eastbound taper
+              </p>
+
+            </div>
+
+            <span class="report-status resolved">
+              RESOLVED
+            </span>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- =========================================
+           DEVELOPMENT NOTE
+           ========================================= -->
+
+      <section class="prototype-note">
+
+        <span>
+          PROTOTYPE VIEW
+        </span>
+
+        <p>
+          This dashboard simulates the supervisor side of the JORDAN worker-to-action workflow.
+        </p>
+
+      </section>
+
+    </main>
+
+    <!-- =========================================
+         BOTTOM NAV
+         ========================================= -->
+
+    <nav class="foreman-bottom-nav">
+
+      <a
+        href="foreman.html"
+        class="foreman-nav-item active"
+      >
+
+        <span>
+          ◉
+        </span>
+
+        Dashboard
+
+      </a>
+
+      <a
+        href="foreman-reports.html"
+        class="foreman-nav-item"
+      >
+
+        <span>
+          !
+        </span>
+
+        Reports
+
+      </a>
+
+      <a
+        href="foreman-crew.html"
+        class="foreman-nav-item"
+      >
+
+        <span>
+          ◎
+        </span>
+
+        Crew
+
+      </a>
+
+      <a
+        href="index.html"
+        class="foreman-nav-item"
+      >
+
+        <span>
+          ↔
+        </span>
+
+        Worker View
+
+      </a>
+
+    </nav>
+
+    <!-- Legacy hook retained so existing foreman.js can safely bind if it expects this id. -->
+    <button
+      id="incidentsNavButton"
+      type="button"
+      hidden
+      aria-hidden="true"
+    ></button>
+
+  </div>
+
+  <script src="foreman.js"></script>
+
+</body>
+
+</html>

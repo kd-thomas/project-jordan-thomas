@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Report Sent | JORDAN</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="prototype.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="app-shell">
+
+    <header class="app-header">
+
+      <div class="app-header-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+          class="app-mark"
+        />
+
+        <div>
+
+          <span class="app-name">
+            JORDAN
+          </span>
+
+          <span class="app-subtitle">
+            Worker Safety
+          </span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <main class="app-main confirmation-screen">
+
+      <section class="confirmation-hero">
+
+        <div
+          class="confirmation-icon"
+          id="confirmationIcon"
+        >
+          ✓
+        </div>
+
+
+        <p class="section-label">
+          REPORT SENT
+        </p>
+
+
+        <h1 id="confirmationTitle">
+          Safety report saved.
+        </h1>
+
+
+        <p
+          class="confirmation-message"
+          id="confirmationMessage"
+        >
+          Your report has been added to the work zone.
+        </p>
+
+      </section>
+
+
+      <section class="confirmation-summary">
+
+        <div class="confirmation-row">
+
+          <span>
+            HAZARD
+          </span>
+
+          <strong id="summaryHazard">
+            Hazard
+          </strong>
+
+        </div>
+
+
+        <div class="confirmation-row">
+
+          <span>
+            WORK ZONE
+          </span>
+
+          <strong>
+            I-70 Eastbound
+          </strong>
+
+        </div>
+
+
+        <div class="confirmation-row">
+
+          <span>
+            CREW
+          </span>
+
+          <strong>
+            Crew A
+          </strong>
+
+        </div>
+
+
+        <div class="confirmation-row">
+
+          <span>
+            STATUS
+          </span>
+
+          <strong id="summaryStatus">
+            Documented
+          </strong>
+
+        </div>
+
+      </section>
+
+
+      <section
+        class="crew-alert-confirmation"
+        id="crewAlertConfirmation"
+        hidden
+      >
+
+        <div class="crew-alert-icon">
+          !
+        </div>
+
+        <div>
+
+          <span>
+            CREW ALERT
+          </span>
+
+          <strong>
+            Crew A has been notified.
+          </strong>
+
+          <p>
+            The alert is now active for this work zone.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section class="confirmation-actions">
+
+        <a
+          class="confirmation-primary-button"
+          href="index.html"
+        >
+          Return Home
+        </a>
+
+
+        <button
+          class="confirmation-secondary-button"
+          id="viewCrewAlertButton"
+          type="button"
+          hidden
+        >
+          Preview Crew Alert →
+        </button>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const mode =
+      params.get("mode");
+
+    const savedReport =
+      JSON.parse(
+        sessionStorage.getItem(
+          "jordanPrototypeReport"
+        ) || "{}"
+      );
+
+
+    const confirmationTitle =
+      document.querySelector(
+        "#confirmationTitle"
+      );
+
+    const confirmationMessage =
+      document.querySelector(
+        "#confirmationMessage"
+      );
+
+    const confirmationIcon =
+      document.querySelector(
+        "#confirmationIcon"
+      );
+
+    const summaryHazard =
+      document.querySelector(
+        "#summaryHazard"
+      );
+
+    const summaryStatus =
+      document.querySelector(
+        "#summaryStatus"
+      );
+
+    const crewAlertConfirmation =
+      document.querySelector(
+        "#crewAlertConfirmation"
+      );
+
+    const viewCrewAlertButton =
+      document.querySelector(
+        "#viewCrewAlertButton"
+      );
+
+
+    summaryHazard.textContent =
+      savedReport.hazard || "Safety Report";
+
+
+    if (mode === "alert") {
+
+      confirmationTitle.textContent =
+        "Your crew has been alerted.";
+
+      confirmationMessage.textContent =
+        "The safety report was sent and Crew A received an immediate work-zone alert.";
+
+      summaryStatus.textContent =
+        "Active Alert";
+
+      confirmationIcon.textContent =
+        "!";
+
+      confirmationIcon.classList.add(
+        "alert"
+      );
+
+      crewAlertConfirmation.hidden =
+        false;
+
+      viewCrewAlertButton.hidden =
+        false;
+
+
+      viewCrewAlertButton.addEventListener(
+        "click",
+        () => {
+
+          window.location.href =
+            "crew-alert.html";
+
+        }
+      );
+
+    } else {
+
+      confirmationTitle.textContent =
+        "Safety report documented.";
+
+      confirmationMessage.textContent =
+        "The report was saved to this work zone without sending a live crew alert.";
+
+      summaryStatus.textContent =
+        "Documented";
+
+    }
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <meta
+    name="theme-color"
+    content="#061c3e"
+  />
+
+  <title>Incident | JORDAN Foreman Console</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../assets/media-kit/logos/jordan-mark.png"
+  />
+
+  <link
+    rel="stylesheet"
+    href="foreman-incident.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="incident-app">
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+
+    <header class="incident-header">
+
+      <div class="incident-brand">
+
+        <img
+          src="../assets/media-kit/logos/jordan-mark.png"
+          alt="JORDAN"
+        />
+
+        <div>
+
+          <strong>
+            JORDAN
+          </strong>
+
+          <span>
+            Foreman Console
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="incident-role">
+
+        <span>
+          ACTIVE ROLE
+        </span>
+
+        <strong>
+          Foreman
+        </strong>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main class="incident-main">
+
+      <!-- =========================================
+           BACK / TITLE
+           ========================================= -->
+
+      <section class="incident-page-header">
+
+        <button
+          class="incident-back-button"
+          id="backToDashboardButton"
+          type="button"
+          aria-label="Return to dashboard"
+        >
+          ←
+        </button>
+
+
+        <div>
+
+          <p class="incident-eyebrow">
+            ACTIVE INCIDENT
+          </p>
+
+          <h1>
+            Incident response
+          </h1>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           INCIDENT SUMMARY
+           ========================================= -->
+
+      <section class="incident-summary-card">
+
+        <div class="summary-top">
+
+          <div>
+
+            <span class="summary-label">
+              SAFETY ALERT
+            </span>
+
+            <h2 id="incidentHazard">
+              Safety Hazard
+            </h2>
+
+          </div>
+
+
+          <span class="summary-live-pill">
+
+            <span></span>
+
+            ACTIVE
+
+          </span>
+
+        </div>
+
+
+        <p
+          class="summary-note"
+          id="incidentReporterNote"
+        >
+          No reporter note provided.
+        </p>
+
+
+        <div class="summary-grid">
+
+          <div>
+
+            <span>
+              PROJECT
+            </span>
+
+            <strong id="incidentProject">
+              24-117
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              WORK ZONE
+            </span>
+
+            <strong id="incidentWorkZone">
+              I-70 Eastbound
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              CREW
+            </span>
+
+            <strong id="incidentCrew">
+              Crew A
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              REPORTED
+            </span>
+
+            <strong id="incidentReportedTime">
+              Just now
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           RESPONSE STATUS
+           ========================================= -->
+
+      <section class="response-section">
+
+        <div class="section-heading">
+
+          <span class="step-number">
+            1
+          </span>
+
+          <div>
+
+            <h2>
+              Crew response
+            </h2>
+
+            <p>
+              Confirm the crew has received or been briefed on the hazard.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="crew-response-card">
+
+          <div class="response-stat">
+
+            <span>
+              ACKNOWLEDGED
+            </span>
+
+            <strong id="incidentAcknowledgedCount">
+              4 / 6
+            </strong>
+
+          </div>
+
+
+          <div class="response-progress">
+
+            <div
+              class="response-progress-fill"
+              id="incidentAckFill"
+            ></div>
+
+          </div>
+
+
+          <button
+            class="brief-crew-button"
+            id="briefCrewButton"
+            type="button"
+          >
+            Mark Entire Crew Briefed
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           SUPERVISOR ACTION
+           ========================================= -->
+
+      <section class="response-section">
+
+        <div class="section-heading">
+
+          <span class="step-number">
+            2
+          </span>
+
+          <div>
+
+            <h2>
+              What action was taken?
+            </h2>
+
+            <p>
+              Select the response that best describes what happened.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="action-grid">
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Crew warned"
+          >
+
+            <span class="action-icon">
+              !
+            </span>
+
+            <span>
+
+              <strong>
+                Crew Warned
+              </strong>
+
+              <small>
+                Workers were briefed or directed to stay alert
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Work paused"
+          >
+
+            <span class="action-icon">
+              ‖
+            </span>
+
+            <span>
+
+              <strong>
+                Work Paused
+              </strong>
+
+              <small>
+                Operations were temporarily stopped
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Hazard removed"
+          >
+
+            <span class="action-icon">
+              ✓
+            </span>
+
+            <span>
+
+              <strong>
+                Hazard Removed
+              </strong>
+
+              <small>
+                The unsafe condition was physically corrected
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Traffic control adjusted"
+          >
+
+            <span class="action-icon">
+              ↔
+            </span>
+
+            <span>
+
+              <strong>
+                Traffic Control Adjusted
+              </strong>
+
+              <small>
+                Cones, barriers, signs or traffic control were changed
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Emergency services contacted"
+          >
+
+            <span class="action-icon">
+              +
+            </span>
+
+            <span>
+
+              <strong>
+                Emergency Services
+              </strong>
+
+              <small>
+                Police, EMS or another emergency service was contacted
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="supervisor-action"
+            type="button"
+            data-action="Monitoring"
+          >
+
+            <span class="action-icon">
+              ◉
+            </span>
+
+            <span>
+
+              <strong>
+                Continue Monitoring
+              </strong>
+
+              <small>
+                Hazard remains under observation
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           RESPONSE NOTE
+           ========================================= -->
+
+      <section class="response-section">
+
+        <div class="section-heading">
+
+          <span class="step-number">
+            3
+          </span>
+
+          <div>
+
+            <h2>
+              Supervisor note
+            </h2>
+
+            <p>
+              Optional. Record anything useful for the incident history.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="supervisor-note-field">
+
+          <textarea
+            id="supervisorNote"
+            maxlength="300"
+            rows="5"
+            placeholder="Example: Branch removed from travel lane and crew briefed before work resumed."
+          ></textarea>
+
+
+          <div class="note-footer">
+
+            <span>
+              Optional
+            </span>
+
+            <span id="supervisorNoteCount">
+              0 / 300
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           FINAL STATUS
+           ========================================= -->
+
+      <section class="response-section">
+
+        <div class="section-heading">
+
+          <span class="step-number">
+            4
+          </span>
+
+          <div>
+
+            <h2>
+              Incident status
+            </h2>
+
+            <p>
+              Decide whether the alert should remain active or be resolved.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="incident-status-options">
+
+          <button
+            class="incident-status-option"
+            id="monitorIncidentButton"
+            type="button"
+          >
+
+            <span class="status-option-icon monitoring">
+              ◉
+            </span>
+
+            <span>
+
+              <strong>
+                Keep Monitoring
+              </strong>
+
+              <small>
+                Leave this incident active
+              </small>
+
+            </span>
+
+          </button>
+
+
+          <button
+            class="incident-status-option resolve"
+            id="resolveIncidentButton"
+            type="button"
+          >
+
+            <span class="status-option-icon resolved">
+              ✓
+            </span>
+
+            <span>
+
+              <strong>
+                Resolve Incident
+              </strong>
+
+              <small>
+                Close the active crew alert
+              </small>
+
+            </span>
+
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================================
+           SAVE
+           ========================================= -->
+
+      <section class="incident-submit">
+
+        <div
+          class="incident-submit-helper"
+          id="incidentSubmitHelper"
+        >
+          Select a supervisor action and incident status.
+        </div>
+
+
+        <button
+          class="save-incident-button"
+          id="saveIncidentButton"
+          type="button"
+          disabled
+        >
+          SAVE INCIDENT UPDATE
+        </button>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <script src="foreman-incident.js"></script>
+
+</body>
+
+</html>
